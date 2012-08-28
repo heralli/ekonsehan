@@ -16,7 +16,9 @@ public class MainWindow extends JFrame{
 		public MainWindow(){
 			this.setExtendedState(MAXIMIZED_BOTH);
 			this.setUndecorated(true);
+			
 			this.setSize(100,200);
+			this.pack();
 		}
 			    
 }

@@ -3,6 +3,8 @@ package com.heralli.ekonsehan;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import javax.swing.JLabel;
+
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Color;
 
@@ -45,5 +47,7 @@ public class MultipleChoiceQuestionView extends JPanel {
 		lblChoiceb.setText(q.getChoice(1));
 		lblChoicec.setText(q.getChoice(2));
 		lblChoiced.setText(q.getChoice(3));
+		
+		this.setPreferredSize(new Dimension(600, 400));
 	}
 }
