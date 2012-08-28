@@ -5,6 +5,8 @@ import java.util.Vector;
 public class MultipleChoiceQuestion extends Question {
 	Vector<String> choices = new Vector<String>();
 	
+	public MultipleChoiceQuestion(){}
+	
 	
 	public MultipleChoiceQuestion(String question)
 	{
@@ -19,6 +21,10 @@ public class MultipleChoiceQuestion extends Question {
 	public String getChoice(int i)
 	{
 		return choices.elementAt(i);	
+	}
+	
+	public int getChoiceCount(){
+		return choices.size();
 	}
 	
 }
