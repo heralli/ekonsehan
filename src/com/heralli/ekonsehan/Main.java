@@ -3,6 +3,8 @@ package com.heralli.ekonsehan;
 public class Main {
 	public static void main(String args[])
 	{
+		SplashScreen test = new SplashScreen();
+		/*
 		MultipleChoiceQuestion q1 = new MultipleChoiceQuestion();
 		q1.setQuestion("Who is the father of Economics?");
 		q1.addChoice("a. Adam Smith"); 
@@ -10,5 +12,6 @@ public class Main {
 		q1.addChoice("c. Alan Turing");
 		q1.addChoice("d. Alan K");
 		System.out.println(q1.getChoice(3));
+		*/
 	}
 }
