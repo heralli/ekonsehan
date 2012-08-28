@@ -18,9 +18,7 @@ public class Main {
 		
 		MultipleChoiceQuestionView q1v = new MultipleChoiceQuestionView(q1);
 		MainWindow mainWin = new MainWindow();
-		mainWin.getContentPane().setLayout(new BorderLayout());
-		mainWin.getContentPane().add(new JLabel("Hello"),BorderLayout.WEST);
-		mainWin.getContentPane().add(q1v,BorderLayout.CENTER);
+		mainWin.getContentPane().add(q1v);
 		mainWin.setVisible(true);
 		
 		
