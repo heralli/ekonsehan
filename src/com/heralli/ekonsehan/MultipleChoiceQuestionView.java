@@ -49,5 +49,7 @@ public class MultipleChoiceQuestionView extends JPanel {
 		lblChoiced.setText(q.getChoice(3));
 		
 		this.setPreferredSize(new Dimension(600, 400));
+		this.setMinimumSize( new Dimension(600, 400));
+		this.setMaximumSize(new Dimension(600, 400));
 	}
 }
