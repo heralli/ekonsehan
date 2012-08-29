@@ -17,8 +17,10 @@ public class MainWindow extends JFrame{
 			this.setExtendedState(MAXIMIZED_BOTH);
 			this.setUndecorated(true);
 			
-			this.setSize(100,200);
-			this.pack();
+			ImageIcon im = new ImageIcon(getClass().getResource("/resources/fadedbackground.jpg"));
+			BackgroundPanel p = new BackgroundPanel(im.getImage(),0);
+			this.getContentPane().add(p);
+						
 			
 		}
 			    

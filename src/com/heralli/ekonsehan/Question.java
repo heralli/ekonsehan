@@ -13,9 +13,9 @@ public class Question implements IQuestion {
 	public static final int PROBLEM_SOLVING=3;
 	
 	
-	private String question;
-	private String answer;
-	private int level;
+	protected String question;
+	protected String answer;
+	protected int level = EASY;
 	
 	@Override
 	public void setQuestion(String question) {
@@ -53,8 +53,13 @@ public class Question implements IQuestion {
 
 	@Override
 	public int getTimeAllowed() {
-		// TODO Auto-generated method stub
-		return 0;
+		int retval=0;
+		switch (level){
+		case EASY: return retval=10; 
+		case AVERAGE: return retval=15; 
+		case DIFFICULT: return retval=20; 
+		}
+		return retval;
 	}
 
 }

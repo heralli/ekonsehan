@@ -21,17 +21,12 @@ public class MultipleChoiceQuestion extends Question {
 		return choices.size();
 	}
 
-
 	@Override
 	public int getType() {
 		// TODO Auto-generated method stub
 		return Question.MULTIPLE_CHOICE;
 	}
 
-	@Override
-	public int getTimeAllowed() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
 	
 }
