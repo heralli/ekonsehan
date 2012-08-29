@@ -21,7 +21,7 @@ public class Main {
 		q1.addChoice("c. Alan Turing");
 		q1.addChoice("d. Alan K");
 		
-		MultipleChoiceQuestionView q1v = new MultipleChoiceQuestionView(q1);
+
 		MainWindow mainWin = new MainWindow();
 		//mainWin.getContentPane().add(q1v);
 		mainWin.setVisible(true);

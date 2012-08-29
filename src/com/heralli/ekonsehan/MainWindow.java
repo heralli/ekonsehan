@@ -16,10 +16,12 @@ public class MainWindow extends JFrame{
 		public MainWindow(){
 			this.setExtendedState(MAXIMIZED_BOTH);
 			this.setUndecorated(true);
-			
+			/*
 			ImageIcon im = new ImageIcon(getClass().getResource("/resources/fadedbackground.jpg"));
 			BackgroundPanel p = new BackgroundPanel(im.getImage(),0);
-			this.getContentPane().add(p);
+			*/
+			QuestionView qv = new QuestionView();
+			this.getContentPane().add(qv);
 						
 			
 		}
