@@ -14,12 +14,7 @@ public class Main {
 	{
 		//SplashScreen test = new SplashScreen();
 		
-		MultipleChoiceQuestion q1 = new MultipleChoiceQuestion();
-		q1.setQuestion("Who is the father of Economics?");
-		q1.addChoice("a. Adam Smith"); 
-		q1.addChoice("b. Adam Sandler");
-		q1.addChoice("c. Alan Turing");
-		q1.addChoice("d. Alan K");
+		
 		
 
 		MainWindow mainWin = new MainWindow();
