@@ -19,6 +19,7 @@ public class MainWindow extends JFrame{
 			
 			this.setSize(100,200);
 			this.pack();
+			
 		}
 			    
 }

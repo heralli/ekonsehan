@@ -14,7 +14,8 @@ public class SplashScreen extends JFrame{
 			this.setExtendedState(MAXIMIZED_BOTH);
 			this.setUndecorated(true);
 			ImageIcon im = new ImageIcon(getClass().getResource("/resources/teaser.jpg"));
-			this.getContentPane().add(new JLabel(im));
+			BackgroundPanel p = new BackgroundPanel(im.getImage(),0);
+			this.getContentPane().add(p);
 			this.setVisible(true);
 		}	
 	    
