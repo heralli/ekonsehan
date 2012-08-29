@@ -7,12 +7,6 @@ public class MultipleChoiceQuestion extends Question {
 	
 	public MultipleChoiceQuestion(){}
 	
-	
-	public MultipleChoiceQuestion(String question)
-	{
-		super(question);		
-	}
-	
 	public void addChoice(String choice)
 	{
 		choices.addElement(choice);
@@ -25,6 +19,19 @@ public class MultipleChoiceQuestion extends Question {
 	
 	public int getChoiceCount(){
 		return choices.size();
+	}
+
+
+	@Override
+	public int getType() {
+		// TODO Auto-generated method stub
+		return Question.MULTIPLE_CHOICE;
+	}
+
+	@Override
+	public int getTimeAllowed() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 }

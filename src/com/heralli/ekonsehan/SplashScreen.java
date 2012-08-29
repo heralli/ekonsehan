@@ -18,6 +18,5 @@ public class SplashScreen extends JFrame{
 			this.getContentPane().add(p);
 			this.setVisible(true);
 		}	
-	    
 }
 
