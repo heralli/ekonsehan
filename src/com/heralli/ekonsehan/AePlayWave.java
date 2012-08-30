@@ -5,6 +5,7 @@
 
 package com.heralli.ekonsehan;
 
+import java.io.BufferedInputStream;
 import java.io.File; 
 import java.io.IOException; 
 import javax.sound.sampled.AudioFormat; 
@@ -39,16 +40,18 @@ public class AePlayWave extends Thread {
     } 
  
     public void run() { 
- 
+ /*
         File soundFile = new File(filename);
         if (!soundFile.exists()) { 
             System.err.println("Wave file not found: " + filename);
             return;
         } 
- 
+ */
         AudioInputStream audioInputStream = null;
         try { 
-            audioInputStream = AudioSystem.getAudioInputStream(soundFile);
+            //audioInputStream = AudioSystem.getAudioInputStream(soundFile);
+    
+        	audioInputStream = AudioSystem.getAudioInputStream(new BufferedInputStream(getClass().getResourceAsStream("/resources/countdown.wav")));
         } catch (UnsupportedAudioFileException e1) { 
             e1.printStackTrace();
             return;
