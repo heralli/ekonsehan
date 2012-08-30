@@ -76,32 +76,60 @@ public class QuestionView extends JPanel implements MouseListener{
 		c.fill = GridBagConstraints.BOTH;
 		questionPanel = new JPanel(layout);
 		
-		JPanel left = new JPanel();
-		left.setBackground(new Color(31,73,125));
-		left.setFont(new Font("Arial", Font.BOLD, 60));
+		JPanel leftTop = new JPanel();
+		leftTop.setBackground(new Color(31,73,125));
 		c.gridx =0;
 		c.gridy =0;
-		layout.setConstraints(left,c);
+		layout.setConstraints(leftTop,c);
 		
-		JPanel right = new JPanel(new BorderLayout());
-		right.setBackground(new Color(255,255,255));		
+		JPanel rightTop = new JPanel(new BorderLayout());
+		rightTop.setBackground(new Color(255,255,255));		
 		c.gridx =1;
 		c.gridy =0;
-		layout.setConstraints(right,c);
+		layout.setConstraints(rightTop,c);
 		JLabel lblQuestion = new JLabel(q.getQuestion());
 		lblQuestion.setFont(new Font("Arial", Font.BOLD, 60));
-		right.add(lblQuestion);
+		rightTop.add(lblQuestion);
+		
+		JPanel leftCenter = new JPanel();
+		leftCenter.setBackground(new Color(31,73,125));
+		c.gridx =0;
+		c.gridy =1;
+		layout.setConstraints(leftCenter,c);
+		
+		JPanel rightCenter = new JPanel(new BorderLayout());
+		rightCenter.setBackground(new Color(255,255,255));		
+		c.gridx =1;
+		c.gridy =1;
+		layout.setConstraints(rightCenter,c);
+				
+		JPanel leftBottom = new JPanel();
+		leftBottom.setBackground(new Color(31,73,125));
+		c.gridx =0;
+		c.gridy =2;
+		layout.setConstraints(leftBottom,c);
+		
+		JPanel rightBottom = new JPanel(new BorderLayout());
+		rightBottom.setBackground(new Color(255,255,255));		
+		c.gridx =1;
+		c.gridy =2;
+		layout.setConstraints(rightBottom,c);
+		
+		questionPanel.add(leftTop);
+		questionPanel.add(rightTop);
+		questionPanel.add(leftCenter);
+		questionPanel.add(rightCenter);
+		questionPanel.add(leftBottom);
+		questionPanel.add(rightBottom);
 		
 		layout.columnWeights = new double[]{0.0f,4.0f};
-		layout.rowWeights = new double[]{10.0f};
+		layout.rowWeights = new double[]{2.0f,2.0f};
 		
-		
-		questionPanel.add(left);
-		questionPanel.add(right);
-
 		
 		this.setColumnMinWidth(layout, 0, 300);
-		this.setRowMinHeight(layout, 0, 600);
+		this.setRowMinHeight(layout, 0, 300);
+		this.setRowMinHeight(layout, 1, 300);
+		this.setRowMinHeight(layout, 2, 300);
 		
 		this.add(questionPanel,"2");
 		

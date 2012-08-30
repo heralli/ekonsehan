@@ -17,6 +17,7 @@ public class MainWindow extends JFrame{
 		public MainWindow(){
 			this.setExtendedState(MAXIMIZED_BOTH);
 			this.setUndecorated(true);
+			this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 			
 			MultipleChoiceQuestion q1 = new MultipleChoiceQuestion();
 			q1.setQuestion("Who is the father of Economics?");
