@@ -6,7 +6,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
 
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -33,6 +36,7 @@ public class QuizTimer extends JPanel implements ActionListener, MouseListener{
 	
 	public void actionPerformed(ActionEvent e)
 	{
+		new AePlayWave(getClass().getResource("/resources/countdown.wav").getFile()).start();
 		lblSecondsLeft.setText((max-(count++))+"");
 		if (count>max)
 			timer.stop();
@@ -58,5 +62,20 @@ public class QuizTimer extends JPanel implements ActionListener, MouseListener{
     public void mouseClicked(MouseEvent e) {
     	this.start();
     }
+    
+    public void play(String filename)
+    {
+        try
+        {
+            Clip clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(new File(filename)));
+            clip.start();
+        }
+        catch (Exception exc)
+        {
+            exc.printStackTrace(System.out);
+        }
+    }
+
 	
 }
