@@ -18,7 +18,6 @@ public class MainWindow extends JFrame{
 			this.setExtendedState(MAXIMIZED_BOTH);
 			this.setUndecorated(true);
 			
-						
 			MultipleChoiceQuestion q1 = new MultipleChoiceQuestion();
 			q1.setQuestion("Who is the father of Economics?");
 			q1.addChoice("a. Adam Smith"); 
@@ -27,7 +26,15 @@ public class MainWindow extends JFrame{
 			q1.addChoice("d. Alan K");
 			q1.setLevel(Question.EASY);
 			
-			QuestionView qv = new QuestionView(q1);
+			
+			IdentificationQuestion q2 = new IdentificationQuestion();
+			q2.setQuestion("What is the best PL?");
+			q2.setAnswer("Java");
+			
+			
+		
+			
+			QuestionView qv = new QuestionView(q2);
 			this.getContentPane().add(qv);
 			
 			this.pack();

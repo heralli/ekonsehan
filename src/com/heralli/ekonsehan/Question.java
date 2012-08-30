@@ -32,6 +32,10 @@ public class Question implements IQuestion {
 	public String getAnswer() {
 		return answer;
 	}
+	
+	public void setAnswer(String answer){
+		this.answer = answer;		
+	}
 
 	@Override
 	public String getLevel() {

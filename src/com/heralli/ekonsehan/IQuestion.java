@@ -21,6 +21,13 @@ public interface IQuestion {
 	 */
 	public String getAnswer();
 	
+	
+	/**
+	 * Sets the answer
+	 * @return
+	 */
+	public void setAnswer(String answer);
+	
 	/**
 	 * Return the level: EASY, AVERAGE, DIFFICULT
 	 * @return
