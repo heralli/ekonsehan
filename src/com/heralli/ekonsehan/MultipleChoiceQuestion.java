@@ -22,7 +22,7 @@ public class MultipleChoiceQuestion extends Question {
 	}
 
 	@Override
-	public int getType() {
+	public String getType() {
 		// TODO Auto-generated method stub
 		return Question.MULTIPLE_CHOICE;
 	}

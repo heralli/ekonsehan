@@ -25,18 +25,18 @@ public interface IQuestion {
 	 * Return the level: EASY, AVERAGE, DIFFICULT
 	 * @return
 	 */
-	public int getLevel();
+	public String getLevel();
 	
 	/**
 	 * Sets the level of the question
 	 */
-	public void setLevel(int level);
+	public void setLevel(String level);
 	
 	/**
 	 * Return the type of Question
 	 * @return
 	 */
-	public int getType();
+	public String getType();
 	
 	/**
 	 * Returns the allowed time
