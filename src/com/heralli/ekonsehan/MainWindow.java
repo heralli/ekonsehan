@@ -27,6 +27,7 @@ public class MainWindow extends JFrame{
 			q1.addChoice("c. Alan Turing");
 			q1.addChoice("d. Alan K");
 			q1.setLevel(Question.EASY);
+			q1.setAnswer("a. Adam Smith");
 			
 			
 			IdentificationQuestion q2 = new IdentificationQuestion();
