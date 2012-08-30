@@ -46,6 +46,8 @@ public class QuestionView extends JPanel implements MouseListener{
 		
 		JPanel bottom = new JPanel();
 		bottom.setBackground(new Color(31,73,125));
+		QuizTimer betTimer = new QuizTimer(10);
+		bottom.add(betTimer);
 		
 		JPanel center = new JPanel(new GridLayout(2,1));
 		center.setBackground(new Color(255,255,255));
@@ -82,6 +84,8 @@ public class QuestionView extends JPanel implements MouseListener{
 		c.gridy =0;
 		layout.setConstraints(leftTop,c);
 		
+
+		
 		JPanel rightTop = new JPanel(new BorderLayout());
 		rightTop.setBackground(new Color(255,255,255));		
 		c.gridx =1;
@@ -98,6 +102,8 @@ public class QuestionView extends JPanel implements MouseListener{
 		c.gridx =0;
 		c.gridy =1;
 		layout.setConstraints(leftCenter,c);
+		QuizTimer qTimer = new QuizTimer(q.getTimeAllowed());
+		leftCenter.add(qTimer);
 		
 		JPanel rightCenter = new JPanel(new BorderLayout());
 		rightCenter.setBackground(new Color(255,255,255));		
