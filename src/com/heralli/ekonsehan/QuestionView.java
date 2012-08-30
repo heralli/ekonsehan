@@ -109,11 +109,32 @@ public class QuestionView extends JPanel implements MouseListener{
 		c.gridy =2;
 		layout.setConstraints(leftBottom,c);
 		
-		JPanel rightBottom = new JPanel(new BorderLayout());
+		JPanel rightBottom = new JPanel(new GridLayout(2,2));
 		rightBottom.setBackground(new Color(255,255,255));		
 		c.gridx =1;
 		c.gridy =2;
 		layout.setConstraints(rightBottom,c);
+		if (q.getType().equals(Question.MULTIPLE_CHOICE))
+		{
+			MultipleChoiceQuestion q2=(MultipleChoiceQuestion)q;
+			
+			JLabel choiceA = new JLabel(q2.getChoice(0));
+			choiceA.setFont(new Font("Arial", Font.BOLD, 60));
+			JLabel choiceB = new JLabel(q2.getChoice(1));
+			choiceB.setFont(new Font("Arial", Font.BOLD, 60));
+			JLabel choiceC = new JLabel(q2.getChoice(2));
+			choiceC.setFont(new Font("Arial", Font.BOLD, 60));
+			JLabel choiceD = new JLabel(q2.getChoice(3));
+			choiceD.setFont(new Font("Arial", Font.BOLD, 60));
+						
+			rightBottom.add(choiceA);
+			rightBottom.add(choiceB);
+			rightBottom.add(choiceC);
+			rightBottom.add(choiceD);
+		}
+		
+		
+		
 		
 		questionPanel.add(leftTop);
 		questionPanel.add(rightTop);

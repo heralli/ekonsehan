@@ -18,6 +18,7 @@ public class MainWindow extends JFrame{
 			this.setExtendedState(MAXIMIZED_BOTH);
 			this.setUndecorated(true);
 			this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+			this.requestFocus();
 			
 			MultipleChoiceQuestion q1 = new MultipleChoiceQuestion();
 			q1.setQuestion("Who is the father of Economics?");
@@ -32,10 +33,7 @@ public class MainWindow extends JFrame{
 			q2.setQuestion("What is the best PL?");
 			q2.setAnswer("Java");
 			
-			
-		
-			
-			QuestionView qv = new QuestionView(q2);
+			QuestionView qv = new QuestionView(q1);
 			this.getContentPane().add(qv);
 			
 			this.pack();
