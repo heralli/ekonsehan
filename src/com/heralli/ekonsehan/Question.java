@@ -61,5 +61,15 @@ public class Question implements IQuestion {
 			return 30;		
 		return 0;
 	}
+	
+	public int getPoints() {
+		if (level.equals(EASY))
+			return 5;
+		if (level.equals(AVERAGE))
+			return 10;
+		if (level.equals(DIFFICULT))
+			return 15;		
+		return 0;
+	}
 
 }

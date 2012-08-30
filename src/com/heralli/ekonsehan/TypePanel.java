@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.JTextArea;
 
 public class TypePanel extends JPanel {
 
@@ -22,6 +23,15 @@ public class TypePanel extends JPanel {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 35));
 		add(lblNewLabel, BorderLayout.NORTH);
+		
+		JTextArea txtrHello = new JTextArea();
+		txtrHello.setRows(20);
+		txtrHello.setText("Hello");
+		add(txtrHello, BorderLayout.SOUTH);
+		
+		JLabel lblTest = new JLabel("Test");
+		lblTest.setBackground(Color.RED);
+		add(lblTest, BorderLayout.EAST);
 
 	}
 
