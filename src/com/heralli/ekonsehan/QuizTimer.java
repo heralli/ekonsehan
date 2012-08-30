@@ -20,6 +20,14 @@ public class QuizTimer extends JPanel implements ActionListener, MouseListener{
 	int max;
 	int count=0;
 	
+	ActionListener timesUpListener;
+	
+	
+	public void setTimesUpListener(ActionListener al)
+	{
+		this.timesUpListener = al;
+	}
+	
 	public QuizTimer(int max)
 	{
 		this.max = max;
@@ -38,8 +46,11 @@ public class QuizTimer extends JPanel implements ActionListener, MouseListener{
 	{
 		new AePlayWave(getClass().getResource("/resources/countdown.wav").getFile()).start();
 		lblSecondsLeft.setText((max-(count++))+"");
-		if (count>max)
+		if (count>max+1){
 			timer.stop();
+			timesUpListener.actionPerformed(null);
+		}
+		
 	}
 	
 	

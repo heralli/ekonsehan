@@ -26,7 +26,7 @@ public class MainWindow extends JFrame{
 			q1.addChoice("b. Adam Sandler");
 			q1.addChoice("c. Alan Turing");
 			q1.addChoice("d. Alan K");
-			q1.setLevel(Question.EASY);
+			q1.setLevel(Question.AVERAGE);
 			q1.setAnswer("a. Adam Smith");
 			
 			
@@ -34,7 +34,8 @@ public class MainWindow extends JFrame{
 			q2.setQuestion("What is the best PL?");
 			q2.setAnswer("Java");
 			
-			QuestionView qv = new QuestionView(q1);
+			QuestionView qv = new QuestionView();
+			qv.setQuestion(q1);
 			this.getContentPane().add(qv);
 			
 			this.pack();

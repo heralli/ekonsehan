@@ -7,6 +7,8 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -17,18 +19,29 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
-public class QuestionView extends JPanel implements MouseListener{
+public class QuestionView extends JPanel implements MouseListener, ActionListener{
 	BackgroundPanel blankPanel;
 	JPanel typePanel;
 	JPanel questionPanel;
 	JPanel timesUpPanel;
 	JPanel answerPanel;
+	JPanel timesUpPanel1;
 	
 	Question q;
 	
 	int state=0; 
 	
-	public QuestionView(Question q)
+	
+	
+	
+	public void setQuestion(Question q)
+	{
+		this.q = q;	
+		start();
+	}
+	
+	
+	public void start()
 	{
 		ImageIcon im;
 		this.setLayout(new CardLayout());
@@ -47,6 +60,7 @@ public class QuestionView extends JPanel implements MouseListener{
 		JPanel bottom = new JPanel();
 		bottom.setBackground(new Color(31,73,125));
 		QuizTimer betTimer = new QuizTimer(10);
+		betTimer.setTimesUpListener(this);
 		bottom.add(betTimer);
 		
 		JPanel center = new JPanel(new GridLayout(2,1));
@@ -72,6 +86,33 @@ public class QuestionView extends JPanel implements MouseListener{
 		this.add(typePanel,"1");
 		
 		
+		
+		//------------------------------- times up bet
+		JPanel topA = new JPanel();
+		topA.setBackground(new Color(31,73,125));
+		
+		JPanel bottomA = new JPanel();
+		bottomA.setBackground(new Color(31,73,125));
+				
+		JPanel centerA = new JPanel(new GridLayout(1,1));
+		centerA.setBackground(new Color(255,255,255));
+				
+		JLabel lblLevelA = new JLabel("TIME'S UP!");
+		lblLevelA.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLevelA.setFont(new Font("Times New Roman", Font.BOLD, 100));
+		centerA.add(lblLevelA);
+			
+		timesUpPanel = new JPanel(new GridLayout(3,1));
+		timesUpPanel.add(topA);
+		timesUpPanel.add(centerA);
+		timesUpPanel.add(bottomA);
+				
+				
+		this.add(timesUpPanel,"2");
+		
+		
+		
+		//----------------------------------------------------------------------------------------------------------------------
 		
 		GridBagLayout layout = new GridBagLayout();
 		GridBagConstraints c = new GridBagConstraints();
@@ -103,6 +144,7 @@ public class QuestionView extends JPanel implements MouseListener{
 		c.gridy =1;
 		layout.setConstraints(leftCenter,c);
 		QuizTimer qTimer = new QuizTimer(q.getTimeAllowed());
+		qTimer.setTimesUpListener(this);
 		leftCenter.add(qTimer);
 		
 		JPanel rightCenter = new JPanel(new BorderLayout());
@@ -160,30 +202,30 @@ public class QuestionView extends JPanel implements MouseListener{
 		this.setRowMinHeight(layout, 1, 300);
 		this.setRowMinHeight(layout, 2, 300);
 		
-		this.add(questionPanel,"2");
+		this.add(questionPanel,"3");
 		
 		//--------------------------------- times up
-		JPanel topA = new JPanel();
-		topA.setBackground(new Color(31,73,125));
+		JPanel topD = new JPanel();
+		topD.setBackground(new Color(31,73,125));
 		
-		JPanel bottomA = new JPanel();
-		bottomA.setBackground(new Color(31,73,125));
+		JPanel bottomD = new JPanel();
+		bottomD.setBackground(new Color(31,73,125));
 				
-		JPanel centerA = new JPanel(new GridLayout(1,1));
-		centerA.setBackground(new Color(255,255,255));
+		JPanel centerD = new JPanel(new GridLayout(1,1));
+		centerD.setBackground(new Color(255,255,255));
 		
-		JLabel lblLevelA = new JLabel("TIME'S UP!");
-		lblLevelA.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLevelA.setFont(new Font("Times New Roman", Font.BOLD, 100));
-		centerA.add(lblLevelA);
+		JLabel lblLevelD = new JLabel("TIME'S UP!");
+		lblLevelD.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLevelD.setFont(new Font("Times New Roman", Font.BOLD, 100));
+		centerD.add(lblLevelD);
 		
-		timesUpPanel = new JPanel(new GridLayout(3,1));
-		timesUpPanel.add(topA);
-		timesUpPanel.add(centerA);
-		timesUpPanel.add(bottomA);
+		timesUpPanel1 = new JPanel(new GridLayout(3,1));
+		timesUpPanel1.add(topD);
+		timesUpPanel1.add(centerD);
+		timesUpPanel1.add(bottomD);
 		
 		
-		this.add(timesUpPanel,"3");
+		this.add(timesUpPanel1,"4");
 		
 		//---------------------------------------------------------
 		JPanel topB = new JPanel();
@@ -197,7 +239,7 @@ public class QuestionView extends JPanel implements MouseListener{
 		
 		JLabel lblLevelB = new JLabel(q.getAnswer());
 		lblLevelB.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLevelB.setFont(new Font("Times New Roman", Font.BOLD, 100));
+		lblLevelB.setFont(new Font("Arial", Font.BOLD, 100));
 		centerB.add(lblLevelB);
 		
 		answerPanel = new JPanel(new GridLayout(3,1));
@@ -206,7 +248,7 @@ public class QuestionView extends JPanel implements MouseListener{
 		answerPanel.add(bottomB);
 		
 		
-		this.add(answerPanel,"4");
+		this.add(answerPanel,"5");
 		
 		
 		
@@ -261,6 +303,12 @@ public class QuestionView extends JPanel implements MouseListener{
 	       CardLayout cl = (CardLayout)(this.getLayout());
 	       cl.show(this, state+"");
 	       state++;
+	       if (state > 5)
+	    	   state = 0;
+	    }
+	    
+	    public void actionPerformed(ActionEvent e){
+	    	mouseClicked(null);
 	    }
 	
 }
