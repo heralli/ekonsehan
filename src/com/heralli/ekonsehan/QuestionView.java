@@ -3,7 +3,6 @@ package com.heralli.ekonsehan;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -14,6 +13,7 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
@@ -87,9 +87,11 @@ public class QuestionView extends JPanel implements MouseListener{
 		c.gridx =1;
 		c.gridy =0;
 		layout.setConstraints(rightTop,c);
-		JLabel lblQuestion = new JLabel(q.getQuestion());
-		lblQuestion.setFont(new Font("Arial", Font.BOLD, 60));
-		rightTop.add(lblQuestion);
+		JTextArea displayQuestion = new JTextArea(q.getQuestion());
+		displayQuestion.setFont(new Font("Arial", Font.PLAIN, 70));
+		displayQuestion.setLineWrap(true);
+		displayQuestion.setWrapStyleWord(true);
+		rightTop.add(new JScrollPane(displayQuestion));
 		
 		JPanel leftCenter = new JPanel();
 		leftCenter.setBackground(new Color(31,73,125));
@@ -119,13 +121,13 @@ public class QuestionView extends JPanel implements MouseListener{
 			MultipleChoiceQuestion q2=(MultipleChoiceQuestion)q;
 			
 			JLabel choiceA = new JLabel(q2.getChoice(0));
-			choiceA.setFont(new Font("Arial", Font.BOLD, 60));
+			choiceA.setFont(new Font("Arial", Font.PLAIN, 70));
 			JLabel choiceB = new JLabel(q2.getChoice(1));
-			choiceB.setFont(new Font("Arial", Font.BOLD, 60));
+			choiceB.setFont(new Font("Arial", Font.PLAIN, 70));
 			JLabel choiceC = new JLabel(q2.getChoice(2));
-			choiceC.setFont(new Font("Arial", Font.BOLD, 60));
+			choiceC.setFont(new Font("Arial", Font.PLAIN, 70));
 			JLabel choiceD = new JLabel(q2.getChoice(3));
-			choiceD.setFont(new Font("Arial", Font.BOLD, 60));
+			choiceD.setFont(new Font("Arial", Font.PLAIN, 70));
 						
 			rightBottom.add(choiceA);
 			rightBottom.add(choiceB);
@@ -148,7 +150,7 @@ public class QuestionView extends JPanel implements MouseListener{
 		
 		
 		this.setColumnMinWidth(layout, 0, 300);
-		this.setRowMinHeight(layout, 0, 300);
+		this.setRowMinHeight(layout, 0, 550);
 		this.setRowMinHeight(layout, 1, 300);
 		this.setRowMinHeight(layout, 2, 300);
 		

@@ -21,7 +21,7 @@ public class MainWindow extends JFrame{
 			this.requestFocus();
 			
 			MultipleChoiceQuestion q1 = new MultipleChoiceQuestion();
-			q1.setQuestion("Who is the father of Economics?");
+			q1.setQuestion("Who is the father of Economics? This makes the question longer. The quick brown fox jumps over the lazy dog. I wonder how long this string can be because it's interesting to know");
 			q1.addChoice("a. Adam Smith"); 
 			q1.addChoice("b. Adam Sandler");
 			q1.addChoice("c. Alan Turing");
