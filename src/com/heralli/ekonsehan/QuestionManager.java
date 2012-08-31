@@ -3,6 +3,7 @@ package com.heralli.ekonsehan;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.Vector;
 
 /**
@@ -23,6 +24,16 @@ public class QuestionManager {
 
 	Vector<Question> questions = new Vector<Question>();
 	
+	int qIndex = 0;
+	
+	public Question getNextQuestion()
+	{
+		Question q = questions.elementAt(qIndex); 
+		qIndex++;
+		return q;
+					
+	}
+	
 	
 	public void loadQuestions() throws IOException
 	{
@@ -40,6 +51,14 @@ public class QuestionManager {
             {
             	questions.add(new MultipleChoiceQuestion(dataArray[1],dataArray[2],dataArray[3]));            	
             }
+            else if (dataArray[0].equals("3"))
+            {
+            	questions.add(new ProblemSolvingQuestion(dataArray[1],dataArray[2],dataArray[3]));            	
+            }
+            else if (dataArray[0].equals("0"))
+            {
+            	questions.add(new TrueFalseQuestion(dataArray[1],dataArray[2],dataArray[3]));            	
+            }
             
             
             
@@ -54,6 +73,8 @@ public class QuestionManager {
         // Close the file once all data has been read.
         CSVFile.close();
 		
+        System.out.println(questions.size());
+        Collections.shuffle(questions);
 	}
 	
 	

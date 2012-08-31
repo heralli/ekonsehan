@@ -27,26 +27,8 @@ public class MainWindow extends JFrame implements KeyListener{
 			
 			QuestionManager qm = new QuestionManager();
 			qm.loadQuestions();
-			
-			
-			
-			
-			MultipleChoiceQuestion q1 = new MultipleChoiceQuestion();
-			q1.setQuestion("Who is the father of Economics? This makes the question longer. The quick brown fox jumps over the lazy dog. I wonder how long this string can be because it's interesting to know");
-			q1.addChoice("a. Adam Smith"); 
-			q1.addChoice("b. Adam Sandler");
-			q1.addChoice("c. Alan Turing");
-			q1.addChoice("d. Alan K");
-			q1.setLevel(Question.AVERAGE);
-			q1.setAnswer("a. Adam Smith");
-			
-			
-			IdentificationQuestion q2 = new IdentificationQuestion();
-			q2.setQuestion("What is the best PL?");
-			q2.setAnswer("Java");
-			
-			QuestionView qv = new QuestionView();
-			qv.setQuestion(q1);
+						
+			QuestionView qv = new QuestionView(qm);
 			this.getContentPane().add(qv);
 			
 			this.addKeyListener(this);

@@ -29,9 +29,19 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	
 	Question q;
 	
+	int qIndex=0;
+	
 	int state=0; 
 		
-	public void setQuestion(Question q)
+	QuestionManager qm;
+	
+	public QuestionView(QuestionManager qm)
+	{
+		this.qm = qm;
+		setCurrentQuestion(qm.getNextQuestion());
+	}
+	
+	public void setCurrentQuestion(Question q)
 	{
 		this.q = q;	
 		start();
