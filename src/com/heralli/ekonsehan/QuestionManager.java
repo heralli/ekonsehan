@@ -29,7 +29,10 @@ public class QuestionManager {
 	public Question getNextQuestion()
 	{
 		Question q = questions.elementAt(qIndex); 
-		qIndex++;
+		if (qIndex < questions.size()-1)
+			qIndex++;
+		else
+			qIndex = 0;
 		return q;
 					
 	}

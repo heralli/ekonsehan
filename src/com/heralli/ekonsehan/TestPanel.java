@@ -10,12 +10,12 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
 
-public class TypePanel extends JPanel {
+public class TestPanel extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
-	public TypePanel() {
+	public TestPanel() {
 		setBackground(Color.WHITE);
 		setLayout(new BorderLayout(0, 0));
 		

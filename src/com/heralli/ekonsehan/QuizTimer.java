@@ -28,6 +28,15 @@ public class QuizTimer extends JPanel implements ActionListener, MouseListener{
 		this.timesUpListener = al;
 	}
 	
+	public QuizTimer()
+	{
+		lblSecondsLeft = new JLabel("0");
+		lblSecondsLeft.setFont(new Font("Arial", Font.PLAIN, 200));
+		this.add(lblSecondsLeft);
+		timer = new Timer(1000, this);
+		this.addMouseListener(this);
+	}
+	
 	public QuizTimer(int max)
 	{
 		this.max = max;
@@ -36,6 +45,12 @@ public class QuizTimer extends JPanel implements ActionListener, MouseListener{
 		this.add(lblSecondsLeft);
 		timer = new Timer(1000, this);
 		this.addMouseListener(this);
+	}
+	
+	public void setMax(int max){
+		this.max = max;
+		this.count = 0;
+		lblSecondsLeft.setText(max+"");
 	}
 	
 	public void start(){
