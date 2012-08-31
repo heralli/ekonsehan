@@ -12,6 +12,7 @@ import java.awt.event.KeyListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JWindow;
 
@@ -52,7 +53,9 @@ public class MainWindow extends JFrame implements KeyListener{
 			// TODO Auto-generated method stub
 			if (arg0.getKeyCode() == KeyEvent.VK_ESCAPE)
 			{
-				this.dispose();				
+				int choice=JOptionPane.showConfirmDialog(null,"Are you sure you want to exit?", "EKonsehan", JOptionPane.YES_NO_OPTION);
+				if (choice == 0)
+					this.dispose();				
 			}
 			
 		}
