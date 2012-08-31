@@ -6,6 +6,8 @@ import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -13,7 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JWindow;
 
-public class MainWindow extends JFrame{
+public class MainWindow extends JFrame implements KeyListener{
 		public MainWindow(){
 			this.setExtendedState(MAXIMIZED_BOTH);
 			this.setUndecorated(true);
@@ -38,8 +40,32 @@ public class MainWindow extends JFrame{
 			qv.setQuestion(q1);
 			this.getContentPane().add(qv);
 			
+			this.addKeyListener(this);
+			
 			this.pack();
 						
+			
+		}
+
+		@Override
+		public void keyPressed(KeyEvent arg0) {
+			// TODO Auto-generated method stub
+			if (arg0.getKeyCode() == KeyEvent.VK_ESCAPE)
+			{
+				this.dispose();				
+			}
+			
+		}
+
+		@Override
+		public void keyReleased(KeyEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void keyTyped(KeyEvent arg0) {
+			// TODO Auto-generated method stub
 			
 		}
 			    
