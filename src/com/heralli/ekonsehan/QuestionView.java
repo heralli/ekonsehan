@@ -124,6 +124,9 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 		c.gridx =0;
 		c.gridy =0;
 		layout.setConstraints(leftTop,c);
+		QuizTimer qTimer = new QuizTimer(q.getTimeAllowed());
+		qTimer.setTimesUpListener(this);
+		leftTop.add(qTimer);
 		
 
 		
@@ -143,10 +146,7 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 		c.gridx =0;
 		c.gridy =1;
 		layout.setConstraints(leftCenter,c);
-		QuizTimer qTimer = new QuizTimer(q.getTimeAllowed());
-		qTimer.setTimesUpListener(this);
-		leftCenter.add(qTimer);
-		
+				
 		JPanel rightCenter = new JPanel(new BorderLayout());
 		rightCenter.setBackground(new Color(255,255,255));		
 		c.gridx =1;
