@@ -30,10 +30,7 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	Question q;
 	
 	int state=0; 
-	
-	
-	
-	
+		
 	public void setQuestion(Question q)
 	{
 		this.q = q;	
@@ -182,9 +179,6 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 			rightBottom.add(choiceC);
 			rightBottom.add(choiceD);
 		}
-		
-		
-		
 		
 		questionPanel.add(leftTop);
 		questionPanel.add(rightTop);
