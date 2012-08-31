@@ -7,6 +7,13 @@ public class MultipleChoiceQuestion extends Question {
 	
 	public MultipleChoiceQuestion(){}
 	
+	public MultipleChoiceQuestion(String question, String answer, String level)
+	{
+		this.question = question;
+		this.answer = answer;
+		this.level = level;
+	}
+	
 	public void addChoice(String choice)
 	{
 		choices.addElement(choice);

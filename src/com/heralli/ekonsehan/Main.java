@@ -8,9 +8,10 @@ import java.awt.GraphicsEnvironment;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class Main {
-	public static void main(String args[])
+	public static void main(String args[]) throws IOException
 	{
 		//SplashScreen test = new SplashScreen();
 		

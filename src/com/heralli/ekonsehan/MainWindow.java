@@ -8,6 +8,7 @@ import java.awt.GridBagLayout;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -17,11 +18,18 @@ import javax.swing.JPanel;
 import javax.swing.JWindow;
 
 public class MainWindow extends JFrame implements KeyListener{
-		public MainWindow(){
+		public MainWindow() throws IOException{
 			this.setExtendedState(MAXIMIZED_BOTH);
 			this.setUndecorated(true);
 			this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 			this.requestFocus();
+			
+			
+			QuestionManager qm = new QuestionManager();
+			qm.loadQuestions();
+			
+			
+			
 			
 			MultipleChoiceQuestion q1 = new MultipleChoiceQuestion();
 			q1.setQuestion("Who is the father of Economics? This makes the question longer. The quick brown fox jumps over the lazy dog. I wonder how long this string can be because it's interesting to know");

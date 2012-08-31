@@ -17,6 +17,17 @@ public class Question implements IQuestion {
 	protected String answer;
 	protected String level = EASY;
 	
+	public Question(){}
+	
+	public Question(String question, String answer, String level)
+	{
+		this.question = question;
+		this.answer = answer;
+		this.level = level;
+	}
+	
+	
+	
 	@Override
 	public void setQuestion(String question) {
 		this.question = question;

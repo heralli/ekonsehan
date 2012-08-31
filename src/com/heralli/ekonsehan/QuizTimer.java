@@ -71,7 +71,11 @@ public class QuizTimer extends JPanel implements ActionListener, MouseListener{
     }
 
     public void mouseClicked(MouseEvent e) {
-    	this.start();
+    	if (e.getClickCount() == 2)
+    	{
+    		count = 0;
+    	}else if (e.getClickCount() == 1)
+    		this.start();
     }
     
     public void play(String filename)

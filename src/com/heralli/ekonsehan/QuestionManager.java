@@ -3,10 +3,11 @@ package com.heralli.ekonsehan;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Vector;
 
 /**
  * Delimeter is semicolon
- * Column 1 - Question Type
+ * Column 1 - Question Type;0-TF,1-Ide,2-multi,3-prob
  * Column 2 - Question
  * Column 3 - Answer
  * Column 4 - Choices
@@ -20,17 +21,32 @@ import java.io.IOException;
 
 public class QuestionManager {
 
+	Vector<Question> questions = new Vector<Question>();
 	
-	public void loadQuestions(String filename) throws IOException
+	
+	public void loadQuestions() throws IOException
 	{
-		BufferedReader CSVFile = new BufferedReader(new FileReader("Example.csv"));
+		BufferedReader CSVFile = new BufferedReader(new FileReader(getClass().getResource("/resources/questions.txt").getFile()));
 
         String dataRow = CSVFile.readLine();
         while (dataRow != null){
             String[] dataArray = dataRow.split(";");
+                   
+            if (dataArray[0].equals("1"))
+            {
+            	questions.add(new IdentificationQuestion(dataArray[1],dataArray[2],dataArray[3]));
+            }
+            else if (dataArray[0].equals("2"))
+            {
+            	questions.add(new MultipleChoiceQuestion(dataArray[1],dataArray[2],dataArray[3]));            	
+            }
+            
+            
+            
+            
             for (String item:dataArray)
             { 
-            	System.out.print(item + "\t"); 
+            	System.out.print("[" + item + "]"); 
             }
             System.out.println(); // Print the data line.
             dataRow = CSVFile.readLine(); // Read next line of data.
