@@ -9,12 +9,15 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JEditorPane;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -137,14 +140,13 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	       cl.show(this, state+"");
 	       System.out.println(state);
 	       state++;
-	       
 	    }
 	    
 	    public void actionPerformed(ActionEvent e){
 	    	mouseClicked(null);
 	    }
-	    
-	    
+	        
+	    	    
 	    
 	    class AnswerPanel extends JPanel 
 	    {
@@ -286,6 +288,7 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    		displayQuestion.setFont(new Font("Arial", Font.PLAIN, 60));
 	    		displayQuestion.setLineWrap(true);
 	    		displayQuestion.setWrapStyleWord(true);
+	    		displayQuestion.setEditable(false);
 	    		rightTop.add(new JScrollPane(displayQuestion));
 	    		
 	    		JPanel leftCenter = new JPanel();
