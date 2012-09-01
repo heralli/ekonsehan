@@ -215,7 +215,7 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    		
 	    		bottom = new JLabel();
 	    		bottom.setHorizontalAlignment(SwingConstants.CENTER);
-	    		bottom.setFont(new Font("Times New Roman", Font.BOLD, 70));
+	    		bottom.setFont(new Font("Times New Roman", Font.BOLD, 60));
 	    		centerA.add(bottom);
 	    			
 	    		setLayout(new GridLayout(3,1));
@@ -283,7 +283,7 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    		c.gridy =0;
 	    		layout.setConstraints(rightTop,c);
 	    		displayQuestion = new JTextArea();
-	    		displayQuestion.setFont(new Font("Arial", Font.PLAIN, 70));
+	    		displayQuestion.setFont(new Font("Arial", Font.PLAIN, 60));
 	    		displayQuestion.setLineWrap(true);
 	    		displayQuestion.setWrapStyleWord(true);
 	    		rightTop.add(new JScrollPane(displayQuestion));
@@ -299,8 +299,7 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    		c.gridx =1;
 	    		c.gridy =1;
 	    		layout.setConstraints(rightCenter,c);
-	    		lblQuestionImage = new JLabel();
-	    		rightCenter.add(lblQuestionImage);
+	    		
 	    		
 	    				
 	    		JPanel leftBottom = new JPanel();
@@ -315,6 +314,8 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    		c.gridx =1;
 	    		c.gridy =2;
 	    		layout.setConstraints(rightBottom,c);
+	    		lblQuestionImage = new JLabel();
+	    		rightBottom.add(lblQuestionImage);
 	    		
 	    		/*
 	    		if (q.getType().equals(Question.MULTIPLE_CHOICE))

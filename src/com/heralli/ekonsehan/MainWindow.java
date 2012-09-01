@@ -44,7 +44,7 @@ public class MainWindow extends JFrame implements KeyListener{
 		@Override
 		public void keyPressed(KeyEvent arg0) {
 			// TODO Auto-generated method stub
-			if (arg0.getKeyCode() == KeyEvent.VK_ESCAPE)
+			if (arg0.getKeyCode() == KeyEvent.VK_ESCAPE || arg0.getKeyCode() == KeyEvent.VK_Q)
 			{
 				int choice=JOptionPane.showConfirmDialog(null,"Are you sure you want to exit?", "EKonsehan", JOptionPane.YES_NO_OPTION);
 				if (choice == 0)
