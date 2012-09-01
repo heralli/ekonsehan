@@ -149,14 +149,18 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    class AnswerPanel extends JPanel 
 	    {
 	    	JLabel lblAnswer;
+	    	JPanel bottomB;
+	    	JLabel lblAnswerImage;
+	    	
 	    	
 	    	public AnswerPanel()
 	    	{
 	    		JPanel topB = new JPanel();
 	    		topB.setBackground(new Color(31,73,125));
 	    		
-	    		JPanel bottomB = new JPanel();
+	    		bottomB = new JPanel();
 	    		bottomB.setBackground(new Color(31,73,125));
+	    		bottomB.add(lblAnswerImage = new JLabel());
 	    				
 	    		JPanel centerB = new JPanel(new GridLayout(2,1));
 	    		centerB.setBackground(new Color(255,255,255));
@@ -180,7 +184,7 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    	public void setQuestion(Question q)
 	    	{
 	    		lblAnswer.setText(q.getAnswer());
-	    		
+	    		lblAnswerImage.setIcon(q.getAnswerImage());
 	    	}
 	    	
 	    }
@@ -237,7 +241,8 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    	JTextArea displayQuestion;
 	    	JLabel displayPoints;
 	    	JLabel displayType;
-	    	
+	    	JPanel rightCenter;
+	    	JLabel lblQuestionImage; 
 	    	
 	    	public QuestionPanel()
 	    	{
@@ -289,11 +294,14 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    		c.gridy =1;
 	    		layout.setConstraints(leftCenter,c);
 	    				
-	    		JPanel rightCenter = new JPanel(new BorderLayout());
+	    		rightCenter = new JPanel(new BorderLayout());
 	    		rightCenter.setBackground(new Color(255,255,255));		
 	    		c.gridx =1;
 	    		c.gridy =1;
 	    		layout.setConstraints(rightCenter,c);
+	    		lblQuestionImage = new JLabel();
+	    		rightCenter.add(lblQuestionImage);
+	    		
 	    				
 	    		JPanel leftBottom = new JPanel();
 	    		leftBottom.setBackground(new Color(31,73,125));
@@ -354,6 +362,7 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    		displayPoints.setText("(" +q.getLevel()+" - " + q.getPoints() + " points )");
 	    		displayType.setText(q.getType());
 	    		qTimer.setMax(q.getTimeAllowed());
+	    		lblQuestionImage.setIcon(q.getQuestionImage());
 	    	}
 	    	
 	    	public void actionPerformed(ActionEvent e){

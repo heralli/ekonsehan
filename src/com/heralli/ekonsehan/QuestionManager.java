@@ -9,12 +9,13 @@ import java.util.Vector;
 
 /**
  * Delimeter is semicolon
- * Column 1 - Question Type;0-TF,1-Ide,2-multi,3-prob
- * Column 2 - Question
- * Column 3 - Answer
- * Column 4 - Choices
- * 
- * 
+ * Column 1 - QID
+ * Column 2 - Question Type;0-TF,1-Ide,2-multi,3-prob
+ * Column 3 - Question
+ * Column 4 - Answer
+ * Column 5 - LEvel
+ * Column 6 - Question Image
+ * Column 7 - Answer Image
  * 
  * @author jachermocilla
  *
@@ -47,21 +48,21 @@ public class QuestionManager {
         while (dataRow != null){
             String[] dataArray = dataRow.split(";");
                    
-            if (dataArray[0].equals("1"))
+            if (dataArray[1].equals("1"))
             {
-            	questions.add(new IdentificationQuestion(dataArray[1],dataArray[2],dataArray[3]));
+            	questions.add(new IdentificationQuestion(dataArray[0],dataArray[2],dataArray[3],dataArray[4],dataArray[5],dataArray[6]));
             }
-            else if (dataArray[0].equals("2"))
+            else if (dataArray[1].equals("2"))
             {
-            	questions.add(new MultipleChoiceQuestion(dataArray[1],dataArray[2],dataArray[3]));            	
+            	questions.add(new MultipleChoiceQuestion(dataArray[0],dataArray[2],dataArray[3],dataArray[4],dataArray[5],dataArray[6]));            	
             }
-            else if (dataArray[0].equals("3"))
+            else if (dataArray[1].equals("3"))
             {
-            	questions.add(new ProblemSolvingQuestion(dataArray[1],dataArray[2],dataArray[3]));            	
+            	questions.add(new ProblemSolvingQuestion(dataArray[0],dataArray[2],dataArray[3],dataArray[4],dataArray[5],dataArray[6]));            	
             }
-            else if (dataArray[0].equals("0"))
+            else if (dataArray[1].equals("0"))
             {
-            	questions.add(new TrueFalseQuestion(dataArray[1],dataArray[2],dataArray[3]));            	
+            	questions.add(new TrueFalseQuestion(dataArray[0],dataArray[2],dataArray[3],dataArray[4],dataArray[5],dataArray[6]));            	
             }
             
             

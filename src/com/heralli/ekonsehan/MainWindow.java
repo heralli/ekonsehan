@@ -18,15 +18,18 @@ import javax.swing.JPanel;
 import javax.swing.JWindow;
 
 public class MainWindow extends JFrame implements KeyListener{
-		public MainWindow() throws IOException{
+		QuestionManager qm;
+	
+	
+		public MainWindow(QuestionManager qm) throws IOException{
+			
 			this.setExtendedState(MAXIMIZED_BOTH);
 			this.setUndecorated(true);
 			this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 			this.requestFocus();
 			
 			
-			QuestionManager qm = new QuestionManager();
-			qm.loadQuestions();
+			this.qm = qm;
 						
 			QuestionView qv = new QuestionView(qm);
 			this.getContentPane().add(qv);

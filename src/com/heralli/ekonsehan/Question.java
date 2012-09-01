@@ -1,5 +1,7 @@
 package com.heralli.ekonsehan;
 
+import javax.swing.ImageIcon;
+
 public class Question implements IQuestion {
 
 	public static final String EASY = "Easy";
@@ -13,20 +15,45 @@ public class Question implements IQuestion {
 	public static final String PROBLEM_SOLVING = "Problem Solving";
 	
 	
+	protected String id;
 	protected String question;
 	protected String answer;
 	protected String level = EASY;
+	protected ImageIcon questionImage;
+	protected ImageIcon answerImage;
+	
 	
 	public Question(){}
 	
-	public Question(String question, String answer, String level)
+	public Question(String id, String question, String answer, String level, String qi, String ai)
 	{
+		this.id = id;
 		this.question = question;
 		this.answer = answer;
 		this.level = level;
+		this.questionImage = new ImageIcon(qi);
+		this.answerImage = new ImageIcon(ai);
 	}
 	
+	public void setQuestionImage(ImageIcon questionImage)
+	{
+		this.questionImage = questionImage;
+	}
 	
+	public ImageIcon getQuestionImage()
+	{
+		return questionImage;
+	}
+	
+	public void setAnswerImage(ImageIcon answerImage)
+	{
+		this.answerImage = answerImage;
+	}
+	
+	public ImageIcon getAnswerImage()
+	{
+		return answerImage;		
+	}
 	
 	@Override
 	public void setQuestion(String question) {
