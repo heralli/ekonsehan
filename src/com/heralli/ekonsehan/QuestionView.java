@@ -230,7 +230,7 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    		c.gridy =0;
 	    		layout.setConstraints(leftTop,c);
 	    		qTimer = new QuizTimer();
-	    		//qTimer.setTimesUpListener(this);
+	    		qTimer.setTimesUpListener(this);
 	    		displayPoints = new JLabel();
 	    		displayType = new JLabel();
 	    		
@@ -335,7 +335,7 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    	}
 	    	
 	    	public void actionPerformed(ActionEvent e){
-		    	
+	    		QuestionView.this.mouseClicked(null);
 		    }
 	    }
 	    
@@ -386,7 +386,7 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    	}
 	    	
 	    	public void actionPerformed(ActionEvent e){
-		    	
+		    	QuestionView.this.mouseClicked(null);
 		    }
 	    	
 	    }
