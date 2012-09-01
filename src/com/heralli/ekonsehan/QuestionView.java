@@ -155,9 +155,14 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    		JPanel bottomB = new JPanel();
 	    		bottomB.setBackground(new Color(31,73,125));
 	    				
-	    		JPanel centerB = new JPanel(new GridLayout(1,1));
+	    		JPanel centerB = new JPanel(new GridLayout(2,1));
 	    		centerB.setBackground(new Color(255,255,255));
 	    		
+	    		JLabel lbl = new JLabel("Correct Answer: ");
+	    		lbl.setHorizontalAlignment(SwingConstants.CENTER);
+	    		lbl.setFont(new Font("Arial", Font.BOLD, 70));
+	    		centerB.add(lbl);
+	    			    		
 	    		lblAnswer = new JLabel();
 	    		lblAnswer.setHorizontalAlignment(SwingConstants.CENTER);
 	    		lblAnswer.setFont(new Font("Arial", Font.BOLD, 100));
@@ -171,7 +176,7 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    	
 	    	public void setQuestion(Question q)
 	    	{
-	    		lblAnswer.setText("Answer: " + q.getAnswer());
+	    		lblAnswer.setText(q.getAnswer());
 	    		
 	    	}
 	    	

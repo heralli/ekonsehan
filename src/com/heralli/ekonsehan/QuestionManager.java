@@ -1,6 +1,7 @@
 package com.heralli.ekonsehan;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Collections;
@@ -40,8 +41,8 @@ public class QuestionManager {
 	
 	public void loadQuestions() throws IOException
 	{
-		BufferedReader CSVFile = new BufferedReader(new FileReader(getClass().getResource("/resources/questions.txt").getFile()));
-
+		//BufferedReader CSVFile = new BufferedReader(new FileReader(getClass().getResource("/resources/questions.txt").getFile()));
+		BufferedReader CSVFile = new BufferedReader(new FileReader("questions.txt"));
         String dataRow = CSVFile.readLine();
         while (dataRow != null){
             String[] dataArray = dataRow.split(";");
