@@ -21,6 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 public class QuestionView extends JPanel implements MouseListener, ActionListener{
@@ -150,7 +151,7 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    
 	    class AnswerPanel extends JPanel 
 	    {
-	    	JLabel lblAnswer;
+	    	JTextField lblAnswer;
 	    	JPanel bottomB;
 	    	JLabel lblAnswerImage;
 	    	
@@ -169,13 +170,17 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    		
 	    		JLabel lbl = new JLabel("Correct answer: ");
 	    		lbl.setHorizontalAlignment(SwingConstants.CENTER);
-	    		lbl.setFont(new Font("Arial", Font.BOLD, 70));
+	    		lbl.setFont(new Font("Arial", Font.PLAIN, 50));
 	    		centerB.add(lbl);
 	    			    		
-	    		lblAnswer = new JLabel();
+	    		lblAnswer = new JTextField();
+	    		lblAnswer.setFont(new Font("Arial", Font.BOLD, 70));
+	    		//lblAnswer.setLineWrap(true);
+	    		//lblAnswer.setWrapStyleWord(true);
+	    		lblAnswer.setEditable(false);
 	    		lblAnswer.setHorizontalAlignment(SwingConstants.CENTER);
-	    		lblAnswer.setFont(new Font("Arial", Font.BOLD, 100));
-	    		centerB.add(lblAnswer);
+	    		lblAnswer.setForeground(new Color(31,73,125));
+	    		centerB.add(new JScrollPane(lblAnswer));
 	    		
 	    		setLayout(new GridLayout(3,1));
 	    		add(topB);
