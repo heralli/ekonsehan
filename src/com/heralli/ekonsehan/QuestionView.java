@@ -213,6 +213,9 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    	QuizTimer qTimer;
 	    	
 	    	JTextArea displayQuestion;
+	    	JLabel displayPoints;
+	    	JLabel displayType;
+	    	
 	    	
 	    	public QuestionPanel()
 	    	{
@@ -221,14 +224,29 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    		c.fill = GridBagConstraints.BOTH;
 	    		setLayout(layout);
 	    		
-	    		JPanel leftTop = new JPanel();
+	    		JPanel leftTop = new JPanel(new GridLayout(2,1));
 	    		leftTop.setBackground(new Color(31,73,125));
 	    		c.gridx =0;
 	    		c.gridy =0;
 	    		layout.setConstraints(leftTop,c);
 	    		qTimer = new QuizTimer();
 	    		//qTimer.setTimesUpListener(this);
-	    		leftTop.add(qTimer);
+	    		displayPoints = new JLabel();
+	    		displayType = new JLabel();
+	    		
+	    		displayPoints.setForeground(Color.YELLOW);
+	    		displayType.setForeground(Color.YELLOW);
+	    		displayType.setFont(new Font("Times New Roman", Font.BOLD, 50));
+	    		displayPoints.setFont(new Font("Times New Roman", Font.BOLD, 40));
+	    		displayPoints.setHorizontalAlignment(SwingConstants.CENTER);
+	    		displayType.setHorizontalAlignment(SwingConstants.CENTER);
+	    		displayType.setVerticalAlignment(SwingConstants.BOTTOM);
+	    		displayPoints.setVerticalAlignment(SwingConstants.TOP);
+	    		
+	    		leftTop.add(displayType);
+	    		leftTop.add(displayPoints);
+	    		
+	    		
 	    		
 
 	    		
@@ -260,6 +278,7 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    		c.gridx =0;
 	    		c.gridy =2;
 	    		layout.setConstraints(leftBottom,c);
+	    		leftBottom.add(qTimer);
 	    		
 	    		JPanel rightBottom = new JPanel(new GridLayout(2,2));
 	    		rightBottom.setBackground(new Color(255,255,255));		
@@ -310,6 +329,8 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    	public void setQuestion(Question q)
 	    	{
 	    		displayQuestion.setText(q.getQuestion());
+	    		displayPoints.setText("(" +q.getLevel()+" - " + q.getPoints() + " points )");
+	    		displayType.setText(q.getType());
 	    		qTimer.setMax(q.getTimeAllowed());
 	    	}
 	    	
