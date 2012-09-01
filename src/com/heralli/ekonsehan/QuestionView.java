@@ -13,6 +13,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
+import javax.swing.JEditorPane;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -67,11 +68,13 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 		typePanel.setQuestion(q);
 		this.add(typePanel,"1");
 		
+		timesUpPanel.setMessage("(Submit your bets to your proctor)");
 		this.add(timesUpPanel,"2");
 		
 		questionPanel.setQuestion(q);
 		this.add(questionPanel,"3");
 		
+		timesUpPanel1.setMessage("(Submit your answer to your proctor)");
 		this.add(timesUpPanel1,"4");
 		
 		answerPanel.setQuestion(q);		
@@ -187,6 +190,9 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    
 	    class TimesUpPanel extends JPanel
 	    {
+	    	JLabel top;
+	    	JLabel bottom;
+	    		    	
 	    	public TimesUpPanel()
 	    	{
 	    		JPanel topA = new JPanel();
@@ -195,13 +201,18 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    		JPanel bottomA = new JPanel();
 	    		bottomA.setBackground(new Color(31,73,125));
 	    				
-	    		JPanel centerA = new JPanel(new GridLayout(1,1));
+	    		JPanel centerA = new JPanel(new GridLayout(2,1));
 	    		centerA.setBackground(new Color(255,255,255));
 	    				
-	    		JLabel lblLevelA = new JLabel("TIME'S UP!");
-	    		lblLevelA.setHorizontalAlignment(SwingConstants.CENTER);
-	    		lblLevelA.setFont(new Font("Times New Roman", Font.BOLD, 100));
-	    		centerA.add(lblLevelA);
+	    		top = new JLabel("TIME'S UP!");
+	    		top.setHorizontalAlignment(SwingConstants.CENTER);
+	    		top.setFont(new Font("Times New Roman", Font.BOLD, 100));
+	    		centerA.add(top);
+	    		
+	    		bottom = new JLabel();
+	    		bottom.setHorizontalAlignment(SwingConstants.CENTER);
+	    		bottom.setFont(new Font("Times New Roman", Font.BOLD, 70));
+	    		centerA.add(bottom);
 	    			
 	    		setLayout(new GridLayout(3,1));
 	    		add(topA);
@@ -209,6 +220,12 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    		add(bottomA);
 	    		
 	    	}
+	    	
+	    	public void setMessage(String msg)
+	    	{
+	    		bottom.setText(msg);
+	    	}
+	    	
 	    	
 	    }
 	    
