@@ -35,7 +35,7 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	
 	
 	
-	Question q;
+	//Question q;
 	
 	int qCount=1;
 	
@@ -50,18 +50,12 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	{
 		addMouseListener(this);
 		this.qm = qm;
-		setCurrentQuestion(qm.getNextQuestion());
-		start();
+		start(qm.getNextQuestion());
 	}
 	
-	public void setCurrentQuestion(Question q)
+	public void start(Question q)
 	{
-		this.q = q;	
-	}
-	
-	
-	public void start()
-	{
+		
 		ImageIcon im;
 		this.setLayout(cl);
 		this.setBackground(new Color(31,73,125));
@@ -125,16 +119,14 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	public void mouseExited(MouseEvent e) {}
 
 	public void mouseClicked(MouseEvent e){
+		Question q;
+		
 		if (state > 5){
 			state = 0;
-	    	if (((qm.getCurrentQuestionIndex() % 3) == 1) && (qm.getCurrentQuestionIndex() != 0))
-	    	{
-	    		setCurrentQuestion(qm.getNextBonus());
-	    	}
-	    	else{
-	    		setCurrentQuestion(qm.getNextQuestion());
-	    	}
-    		start();
+			//if (qm.getCurrentCount() == 3)
+			//	start(qm.getNextBonus());
+			//else	
+			start(qm.getNextQuestion());
 		}else{
 			CardLayout cl = (CardLayout)(this.getLayout());
 			cl.show(this, state+"");
@@ -356,7 +348,7 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    	displayPoints.setText("(" +q.getLevel()+" - " + q.getPoints() + " points )");
 	    	displayType.setText(q.getType());
 	    	qTimer.setMax(q.getTimeAllowed());
-	    	controlNumber.setText(qm.getCurrentQuestionIndex()+":"+q.getId());
+	    	controlNumber.setText((qm.getCurrentCount())+":"+q.getId());
 	    	
 	    	CardLayout cl = (CardLayout)rightBottom.getLayout();
 	    	

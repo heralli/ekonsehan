@@ -16,7 +16,7 @@ import java.util.Vector;
  * Column 5 - LEvel
  * Column 6 - Question Image
  * Column 7 - Answer Image
- * Columns 8-12, multiple choice
+ * Columns 8-12, multiple choice choices
  * 
  * @author jachermocilla
  *
@@ -33,45 +33,46 @@ public class QuestionManager {
 	
 	int qIndex = 0;
 	int bIndex = 0;
+	int qCount = 0;
 	
 	public QuestionManager(){
 		bonus.add(new IdentificationQuestion("Bonus 1","When was the Department of Economics established?(Give the full date)","July 31, 1975","Easy","econsoclogo.jpg","econsoclogo.jpg"));
 		bonus.add(new IdentificationQuestion("Bonus 2","Give the full name of the senior adviser of the UPLB Economics Society.","Bello, Amelia L.","Easy","econsoclogo.jpg","econsoclogo.jpg"));
 		bonus.add(new IdentificationQuestion("Bonus 3","Give the name of at least three alumni of the UPLB Economics Society who are currently teaching in the Department of Economics.","Arapoc, Jefferey;Arias, Kim;Baldovino, Harvey;Camacho,;Cuevas, Agham;Manalo,;Ramirez, Paul Joseph;Sajise, Asa Jose;Valientes, Rodger","Easy","econsoclogo.jpg","econsoclogo.jpg"));
-		Collections.shuffle(bonus);
+		//Collections.shuffle(bonus);
 	}
 	
 	public Question getNextBonus()
 	{
-		Question q = bonus.elementAt(qIndex); 
-		if (bIndex < bonus.size()-1)
-			bIndex++;
-		else
+		Question q=bonus.elementAt(bIndex);
+		bIndex++;
+		if (bIndex == bonus.size())
 			bIndex = 0;
-		return q;
-					
+		qCount++;
+		return q;					
 	}
 	
 	public Question getNextQuestion()
 	{
-		Question q = questions.elementAt(qIndex); 
-		if (qIndex < questions.size()-1)
-			qIndex++;
-		else
-			qIndex = 0;
-		return q;
-					
+		qCount++;
+		Question q = questions.elementAt(qIndex);
+		qIndex++;
+		if (qIndex == questions.size())
+			qIndex =0;
+		return q;		 
 	}
 	
-	public int getCurrentQuestionIndex(){
-		return qIndex;
+	public int getCurrentCount(){
+		return (qCount);
 	}
+	
+	
 	
 	
 	public void loadQuestions() throws IOException
 	{
 		//BufferedReader CSVFile = new BufferedReader(new FileReader(getClass().getResource("/resources/questions.txt").getFile()));
-		BufferedReader CSVFile = new BufferedReader(new FileReader("questions.txt"));
+		BufferedReader CSVFile = new BufferedReader(new FileReader(EkonsehanConstants.QUESTIONS_FILENAME));
         String dataRow = CSVFile.readLine();
         while (dataRow != null){
             String[] dataArray = dataRow.split(";");
@@ -100,9 +101,6 @@ public class QuestionManager {
             {
             	questions.add(new TrueFalseQuestion(dataArray[0],dataArray[2],dataArray[3],dataArray[4],dataArray[5],dataArray[6]));            	
             }
-            
-            
-            
             
             for (String item:dataArray)
             { 
