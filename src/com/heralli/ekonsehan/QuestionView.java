@@ -416,9 +416,10 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
    	   		placeBet.setForeground(Color.YELLOW);
    	   		placeBet.setFont(new Font("Times New Roman", Font.BOLD, 70));
    	   		placeBet.setHorizontalAlignment(SwingConstants.CENTER);
+   	   		placeBet.setVerticalAlignment(SwingConstants.CENTER);
     		JPanel top = new JPanel(new BorderLayout());
     		top.setBackground(new Color(31,73,125));
-    		top.add(placeBet,BorderLayout.SOUTH);
+    		top.add(placeBet,BorderLayout.CENTER);
 	    		
     		JPanel bottom = new JPanel();
     		bottom.setBackground(new Color(31,73,125));

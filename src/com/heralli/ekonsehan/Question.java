@@ -13,6 +13,7 @@ public class Question implements IQuestion {
 	public static final String IDENTIFICATION = "Identification";
 	public static final String MULTIPLE_CHOICE = "Multiple Choice";
 	public static final String PROBLEM_SOLVING = "Problem Solving";
+	public static final String BONUS = "Bonus";
 	
 	
 	protected String id;
