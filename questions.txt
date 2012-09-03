@@ -1,10 +1,3 @@
 1;1;This refers to the usefulness of a good or service.;Utility;Easy;econsoclogo.jpg;econsoclogo.jpg
 2;2;Who is the father of economics? a)Adam Smith b) Adam West c)Adam Sandler d)Adam Mantium;a)Adam Smith;Average;econsoclogo.jpg;econsoclogo.jpg
-3;0;Mahal ni Johanna si Jose.; True;Difficult;econsoclogo.jpg;econsoclogo.jpg
-4;1;The market situation in which both price and quantity are at levels at which the amount that firms want to supply matches exactly with the amount that consumers want to buy.;Market equilibrium;Easy;econsoclogo.jpg;econsoclogo.jpg
-5;1;What are the three equivalent approaches for measuring GDP?;Expenditure, Income, and Value added;Easy;econsoclogo.jpg;econsoclogo.jpg
-6;0;Even though the firm is incurring losses, it will still be better to continue production if its total revenue can still pay for its variable cost and a portion of its fixed cost. A firm is better off shutting down if continued operations will mean its losses are greater than its fixed cost.;True;Average;econsoclogo.jpg;econsoclogo.jpg
-7;1;This article was written by the former president, Pampanga Rep. Gloria Arroyo. It expresses Arroyo’s take on the present economy and how President Benigno S. Aquino III,who was her student in an economics class in Ateneo before, is losing the gains reaped by the previous government. What is the title of this article?; “It’s the Economy, Student!”;Difficult;econsoclogo.jpg;econsoclogo.jpg
-8;1;Who is the current chairman of the Home Development Mutual Fund, more popularly known as the Pag-IBIG Fund Board of Trustees?;Vice President Jejomar C. Binay, Sr.;Average;econsoclogo.jpg;econsoclogo.jpg
-9;1;It represents the difference between the earnings of Filipinos from activities overseas and the earnings of foreigners in the Philippines.;Net Factor Income from Abroad/ Net Income Factor Income from the Rest of the World (NFIA/NFIRW);Average;econsoclogo.jpg;econsoclogo.jpg
-10;2;This refers to the cost that is dependent on the level of output. a. Total Fixed Cost b. Marginal Cost c. Total Variable Cost d. Total Cost;c. Total Variable Cost;Easy;econsoclogo.jpg;econsoclogo.jpg
+3;0;Mahal ni Johanna si Jose P. Rizal.; True;Difficult;econsoclogo.jpg;econsoclogo.jpg

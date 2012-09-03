@@ -100,7 +100,7 @@ public class Question implements IQuestion {
 		if (level.equals(AVERAGE))
 			return 15;
 		if (level.equals(DIFFICULT))
-			return 30;		
+			return 20;		
 		return 0;
 	}
 	
@@ -114,4 +114,8 @@ public class Question implements IQuestion {
 		return 0;
 	}
 
+	public String getId(){
+		return id;
+	}
+	
 }

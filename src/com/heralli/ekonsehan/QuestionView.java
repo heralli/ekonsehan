@@ -37,6 +37,8 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	
 	Question q;
 	
+	int qCount=1;
+	
 	int state=0; 
 		
 	QuestionManager qm;
@@ -134,8 +136,9 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    public void mouseClicked(MouseEvent e) {
 	       if (state > 5){
 	    	   state = 0;
-		    	setCurrentQuestion(qm.getNextQuestion());
-		    	   start();
+	    	   qCount++;
+	    	   setCurrentQuestion(qm.getNextQuestion());
+	    	   start();
 		   }
 	       CardLayout cl = (CardLayout)(this.getLayout());
 	       cl.show(this, state+"");
@@ -158,8 +161,8 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    	
 	    	public AnswerPanel()
 	    	{
-	    		JPanel topB = new JPanel();
-	    		topB.setBackground(new Color(31,73,125));
+	    		//JPanel topB = new JPanel();
+	    		//topB.setBackground(new Color(31,73,125));
 	    		
 	    		bottomB = new JPanel();
 	    		bottomB.setBackground(new Color(31,73,125));
@@ -174,7 +177,7 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    		centerB.add(lbl);
 	    			    		
 	    		lblAnswer = new JTextField();
-	    		lblAnswer.setFont(new Font("Arial", Font.BOLD, 70));
+	    		lblAnswer.setFont(new Font("Arial", Font.BOLD, 50));
 	    		//lblAnswer.setLineWrap(true);
 	    		//lblAnswer.setWrapStyleWord(true);
 	    		lblAnswer.setEditable(false);
@@ -182,8 +185,8 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    		lblAnswer.setForeground(new Color(31,73,125));
 	    		centerB.add(new JScrollPane(lblAnswer));
 	    		
-	    		setLayout(new GridLayout(3,1));
-	    		add(topB);
+	    		setLayout(new GridLayout(2,1));
+	    		//add(topB);
 	    		add(centerB);
 	    		add(bottomB);
 	    	}
@@ -249,7 +252,10 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    	JLabel displayPoints;
 	    	JLabel displayType;
 	    	JPanel rightCenter;
-	    	JLabel lblQuestionImage; 
+	    	JLabel lblQuestionImage;
+	    	ChoicePanel choices;
+	    	JPanel rightBottom;
+	    	JLabel controlNumber;
 	    	
 	    	public QuestionPanel()
 	    	{
@@ -258,31 +264,34 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    		c.fill = GridBagConstraints.BOTH;
 	    		setLayout(layout);
 	    		
-	    		JPanel leftTop = new JPanel(new GridLayout(2,1));
+	    		JPanel leftTop = new JPanel(new GridLayout(3,1));
 	    		leftTop.setBackground(new Color(31,73,125));
 	    		c.gridx =0;
 	    		c.gridy =0;
 	    		layout.setConstraints(leftTop,c);
 	    		qTimer = new QuizTimer();
 	    		qTimer.setTimesUpListener(this);
+	    		controlNumber = new JLabel("1:1");
 	    		displayPoints = new JLabel();
 	    		displayType = new JLabel();
 	    		
+	    		
+	    		controlNumber.setForeground(Color.GREEN);
 	    		displayPoints.setForeground(Color.YELLOW);
 	    		displayType.setForeground(Color.YELLOW);
+	    		controlNumber.setFont(new Font("Times New Roman", Font.BOLD, 30));
 	    		displayType.setFont(new Font("Times New Roman", Font.BOLD, 50));
 	    		displayPoints.setFont(new Font("Times New Roman", Font.BOLD, 40));
+	    		controlNumber.setHorizontalAlignment(SwingConstants.CENTER);
 	    		displayPoints.setHorizontalAlignment(SwingConstants.CENTER);
 	    		displayType.setHorizontalAlignment(SwingConstants.CENTER);
 	    		displayType.setVerticalAlignment(SwingConstants.BOTTOM);
 	    		displayPoints.setVerticalAlignment(SwingConstants.TOP);
 	    		
+	    		leftTop.add(controlNumber);
 	    		leftTop.add(displayType);
 	    		leftTop.add(displayPoints);
 	    		
-	    		
-	    		
-
 	    		
 	    		JPanel rightTop = new JPanel(new BorderLayout());
 	    		rightTop.setBackground(new Color(255,255,255));		
@@ -290,7 +299,7 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    		c.gridy =0;
 	    		layout.setConstraints(rightTop,c);
 	    		displayQuestion = new JTextArea();
-	    		displayQuestion.setFont(new Font("Arial", Font.PLAIN, 60));
+	    		displayQuestion.setFont(new Font("Arial", Font.PLAIN, 55));
 	    		displayQuestion.setLineWrap(true);
 	    		displayQuestion.setWrapStyleWord(true);
 	    		displayQuestion.setEditable(false);
@@ -317,13 +326,16 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    		layout.setConstraints(leftBottom,c);
 	    		leftBottom.add(qTimer);
 	    		
-	    		JPanel rightBottom = new JPanel(new GridLayout(2,2));
+	    		
+	    		rightBottom = new JPanel(new CardLayout());
 	    		rightBottom.setBackground(new Color(255,255,255));		
 	    		c.gridx =1;
 	    		c.gridy =2;
 	    		layout.setConstraints(rightBottom,c);
+	    		choices = new ChoicePanel();
 	    		lblQuestionImage = new JLabel();
-	    		rightBottom.add(lblQuestionImage);
+	    		rightBottom.add(choices,"choices");
+	    		rightBottom.add(lblQuestionImage,"image");
 	    		
 	    		/*
 	    		if (q.getType().equals(Question.MULTIPLE_CHOICE))
@@ -360,8 +372,8 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    		
 	    		setColumnMinWidth(layout, 0, 300);
 	    		setRowMinHeight(layout, 0, 550);
-	    		setRowMinHeight(layout, 1, 300);
-	    		setRowMinHeight(layout, 2, 300);
+	    		setRowMinHeight(layout, 1, 10);
+	    		setRowMinHeight(layout, 2, 80);
 	    		
 	    	}
 	    	
@@ -371,7 +383,19 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    		displayPoints.setText("(" +q.getLevel()+" - " + q.getPoints() + " points )");
 	    		displayType.setText(q.getType());
 	    		qTimer.setMax(q.getTimeAllowed());
-	    		lblQuestionImage.setIcon(q.getQuestionImage());
+	    		controlNumber.setText(QuestionView.this.qCount+":"+q.getId());
+	    		
+	    		CardLayout cl = (CardLayout)rightBottom.getLayout();
+	    		
+	    		if (q.getType() == Question.MULTIPLE_CHOICE)
+	    		{	
+	    			MultipleChoiceQuestion mq = (MultipleChoiceQuestion)q; 
+	    			choices.setQuestion(mq);
+	    			cl.show(rightBottom,"choices");
+	    		}else{
+	    			lblQuestionImage.setIcon(q.getQuestionImage());
+	    			cl.show(rightBottom,"image");
+	    		}
 	    	}
 	    	
 	    	public void actionPerformed(ActionEvent e){
@@ -428,7 +452,39 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    	public void actionPerformed(ActionEvent e){
 		    	QuestionView.this.mouseClicked(null);
 		    }
-	    	
 	    }
-	
+
+	    
+	    class ChoicePanel extends JPanel{
+	    	JTextArea choiceA = new JTextArea();
+	    	JTextArea choiceB = new JTextArea();
+	    	JTextArea choiceC = new JTextArea();
+	    	JTextArea choiceD = new JTextArea();
+	    	JTextArea choiceE = new JTextArea();
+	    		    	
+	    	public ChoicePanel(){
+	    		setLayout(new GridLayout(5,1));
+	    		choiceA.setFont(new Font("Arial", Font.BOLD, 30));
+	    		choiceB.setFont(new Font("Arial", Font.BOLD, 30));
+	    		choiceC.setFont(new Font("Arial", Font.BOLD, 30));
+	    		choiceD.setFont(new Font("Arial", Font.BOLD, 30));
+	    		choiceE.setFont(new Font("Arial", Font.BOLD, 30));
+	    		
+	    		add(new JScrollPane(choiceA));
+	    		add(new JScrollPane(choiceB));
+	    		add(new JScrollPane(choiceC));
+	    		add(new JScrollPane(choiceD));
+	    		add(new JScrollPane(choiceE));
+	    	}
+	    	
+	    	public void setQuestion(MultipleChoiceQuestion q)
+	    	{
+	    		choiceA.setText(q.getChoice(0));
+	    		choiceB.setText(q.getChoice(1));
+	    		choiceC.setText(q.getChoice(2));
+	    		choiceD.setText(q.getChoice(3));
+	    		choiceE.setText(q.getChoice(4));
+	    	}
+	    }
+	    
 }

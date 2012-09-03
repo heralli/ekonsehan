@@ -20,4 +20,8 @@ public class ProblemSolvingQuestion extends Question{
 		// TODO Auto-generated method stub
 		return Question.PROBLEM_SOLVING;
 	}
+	
+	public int getTimeAllowed(){
+		return 30;
+	}
 }

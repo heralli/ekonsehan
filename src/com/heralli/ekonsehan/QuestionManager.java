@@ -16,6 +16,7 @@ import java.util.Vector;
  * Column 5 - LEvel
  * Column 6 - Question Image
  * Column 7 - Answer Image
+ * Columns 8-12, multiple choice
  * 
  * @author jachermocilla
  *
@@ -47,14 +48,22 @@ public class QuestionManager {
         String dataRow = CSVFile.readLine();
         while (dataRow != null){
             String[] dataArray = dataRow.split(";");
-                   
+                
+            MultipleChoiceQuestion mq;
+            
             if (dataArray[1].equals("1"))
             {
             	questions.add(new IdentificationQuestion(dataArray[0],dataArray[2],dataArray[3],dataArray[4],dataArray[5],dataArray[6]));
             }
             else if (dataArray[1].equals("2"))
             {
-            	questions.add(new MultipleChoiceQuestion(dataArray[0],dataArray[2],dataArray[3],dataArray[4],dataArray[5],dataArray[6]));            	
+            	questions.add(mq=new MultipleChoiceQuestion(dataArray[0],dataArray[2],dataArray[3],dataArray[4],dataArray[5],dataArray[6]));
+            	mq.addChoice(dataArray[7]);
+            	mq.addChoice(dataArray[8]);
+            	mq.addChoice(dataArray[9]);
+            	mq.addChoice(dataArray[10]);
+            	mq.addChoice(dataArray[11]);
+            	
             }
             else if (dataArray[1].equals("3"))
             {
@@ -79,7 +88,7 @@ public class QuestionManager {
         CSVFile.close();
 		
         System.out.println(questions.size());
-        Collections.shuffle(questions);
+        //Collections.shuffle(questions);
 	}
 	
 	
