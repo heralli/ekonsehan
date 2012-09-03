@@ -102,17 +102,19 @@ public class QuestionManager {
             	questions.add(new TrueFalseQuestion(dataArray[0],dataArray[2],dataArray[3],dataArray[4],dataArray[5],dataArray[6]));            	
             }
             
+            /*
             for (String item:dataArray)
             { 
             	System.out.print("[" + item + "]"); 
             }
             System.out.println(); // Print the data line.
+            */
             dataRow = CSVFile.readLine(); // Read next line of data.
         }
         // Close the file once all data has been read.
         CSVFile.close();
 		
-        System.out.println(questions.size());
+        //System.out.println(questions.size());
         Collections.shuffle(questions);
 	}
 	

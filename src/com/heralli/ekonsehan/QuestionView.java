@@ -132,7 +132,7 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 		}else{
 			CardLayout cl = (CardLayout)(this.getLayout());
 			cl.show(this, state+"");
-			System.out.println(state);
+			//System.out.println(state);
 			state++;
 		}
 	}
