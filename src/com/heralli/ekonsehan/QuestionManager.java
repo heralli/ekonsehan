@@ -39,7 +39,7 @@ public class QuestionManager {
 		bonus.add(new IdentificationQuestion("Bonus 1","When was the Department of Economics established?(Give the full date)","July 31, 1975","Easy","econsoclogo.jpg","econsoclogo.jpg"));
 		bonus.add(new IdentificationQuestion("Bonus 2","Give the full name of the senior adviser of the UPLB Economics Society.","Bello, Amelia L.","Easy","econsoclogo.jpg","econsoclogo.jpg"));
 		bonus.add(new IdentificationQuestion("Bonus 3","Give the name of at least three alumni of the UPLB Economics Society who are currently teaching in the Department of Economics.","Arapoc, Jefferey;Arias, Kim;Baldovino, Harvey;Camacho,;Cuevas, Agham;Manalo,;Ramirez, Paul Joseph;Sajise, Asa Jose;Valientes, Rodger","Easy","econsoclogo.jpg","econsoclogo.jpg"));
-		//Collections.shuffle(bonus);
+		Collections.shuffle(bonus);
 	}
 	
 	public Question getNextBonus()
@@ -113,7 +113,7 @@ public class QuestionManager {
         CSVFile.close();
 		
         System.out.println(questions.size());
-        //Collections.shuffle(questions);
+        Collections.shuffle(questions);
 	}
 	
 	
