@@ -3,6 +3,8 @@ package com.heralli.ekonsehan;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -15,6 +17,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JEditorPane;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -120,7 +123,6 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 
 	public void mouseClicked(MouseEvent e){
 		Question q;
-		
 		if (state > 5){
 			state = 0;
 			if ((qm.getCurrentCount() == 10) || (qm.getCurrentCount() == 21) || (qm.getCurrentCount() == 32)) 
@@ -139,7 +141,7 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 		mouseClicked(null);
 	}
 	        
-    class AnswerPanel extends JPanel 
+    class AnswerPanel extends JPanel implements MouseListener
     {
     	JTextField lblAnswer;
     	JPanel bottomB;
@@ -151,9 +153,10 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
     		//JPanel topB = new JPanel();
     		//topB.setBackground(new Color(31,73,125));
 	    		
-    		bottomB = new JPanel();
+    		bottomB = new JPanel(new FlowLayout());
     		bottomB.setBackground(new Color(31,73,125));
-    		bottomB.add(lblAnswerImage = new JLabel());
+    		bottomB.add(lblAnswerImage = new JLabel(),BorderLayout.NORTH);
+    		lblAnswerImage.addMouseListener(this);
 	    				
     		JPanel centerB = new JPanel(new GridLayout(2,1));
     		centerB.setBackground(new Color(255,255,255));
@@ -183,6 +186,39 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
     		lblAnswer.setText(q.getAnswer());
     		lblAnswerImage.setIcon(q.getAnswerImage());
     	}
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			state=3;
+			cl.show(QuestionView.this, state+"");
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		
 	    	
     }
 	    
@@ -375,9 +411,14 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	   	JLabel lblType;
 	   	JLabel lblLevel;
 	    	
-	   	public TypePanel(){
-    		JPanel top = new JPanel();
+   	   	public TypePanel(){
+   	   		JLabel placeBet = new JLabel("Place your bet!");
+   	   		placeBet.setForeground(Color.YELLOW);
+   	   		placeBet.setFont(new Font("Times New Roman", Font.BOLD, 70));
+   	   		placeBet.setHorizontalAlignment(SwingConstants.CENTER);
+    		JPanel top = new JPanel(new BorderLayout());
     		top.setBackground(new Color(31,73,125));
+    		top.add(placeBet,BorderLayout.SOUTH);
 	    		
     		JPanel bottom = new JPanel();
     		bottom.setBackground(new Color(31,73,125));
