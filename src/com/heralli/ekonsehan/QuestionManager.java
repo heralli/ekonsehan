@@ -26,8 +26,31 @@ import java.util.Vector;
 public class QuestionManager {
 
 	Vector<Question> questions = new Vector<Question>();
+	Vector<Question> bonus = new Vector<Question>();
+	
+	
+	
 	
 	int qIndex = 0;
+	int bIndex = 0;
+	
+	public QuestionManager(){
+		bonus.add(new IdentificationQuestion("Bonus 1","When was the Department of Economics established?(Give the full date)","July 31, 1975","Easy","econsoclogo.jpg","econsoclogo.jpg"));
+		bonus.add(new IdentificationQuestion("Bonus 2","Give the full name of the senior adviser of the UPLB Economics Society.","Bello, Amelia L.","Easy","econsoclogo.jpg","econsoclogo.jpg"));
+		bonus.add(new IdentificationQuestion("Bonus 3","Give the name of at least three alumni of the UPLB Economics Society who are currently teaching in the Department of Economics.","Arapoc, Jefferey;Arias, Kim;Baldovino, Harvey;Camacho,;Cuevas, Agham;Manalo,;Ramirez, Paul Joseph;Sajise, Asa Jose;Valientes, Rodger","Easy","econsoclogo.jpg","econsoclogo.jpg"));
+		Collections.shuffle(bonus);
+	}
+	
+	public Question getNextBonus()
+	{
+		Question q = bonus.elementAt(qIndex); 
+		if (bIndex < bonus.size()-1)
+			bIndex++;
+		else
+			bIndex = 0;
+		return q;
+					
+	}
 	
 	public Question getNextQuestion()
 	{
@@ -38,6 +61,10 @@ public class QuestionManager {
 			qIndex = 0;
 		return q;
 					
+	}
+	
+	public int getCurrentQuestionIndex(){
+		return qIndex;
 	}
 	
 	

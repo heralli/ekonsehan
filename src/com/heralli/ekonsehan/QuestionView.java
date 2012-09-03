@@ -48,9 +48,9 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	
 	public QuestionView(QuestionManager qm)
 	{
+		addMouseListener(this);
 		this.qm = qm;
 		setCurrentQuestion(qm.getNextQuestion());
-		addMouseListener(this);
 		start();
 	}
 	
@@ -85,9 +85,7 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 		
 		answerPanel.setQuestion(q);		
 		this.add(answerPanel,"5");		
-		
-
-		
+				
 		
 	}
 	
@@ -117,374 +115,347 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 	    hs[r] = h;
 	    gbl.rowHeights = hs;
 	}
-	public void mousePressed(MouseEvent e) {
-	       
-	    }
+	
+	public void mousePressed(MouseEvent e) {}
 
-	    public void mouseReleased(MouseEvent e) {
-	       
-	    }
+	public void mouseReleased(MouseEvent e) {}
 
-	    public void mouseEntered(MouseEvent e) {
-	       
-	    }
+	public void mouseEntered(MouseEvent e) {}
 
-	    public void mouseExited(MouseEvent e) {
-	       
-	    }
+	public void mouseExited(MouseEvent e) {}
 
-	    public void mouseClicked(MouseEvent e) {
-	       if (state > 5){
-	    	   state = 0;
-	    	   qCount++;
-	    	   setCurrentQuestion(qm.getNextQuestion());
-	    	   start();
-		   }
-	       CardLayout cl = (CardLayout)(this.getLayout());
-	       cl.show(this, state+"");
-	       System.out.println(state);
-	       state++;
-	    }
+	public void mouseClicked(MouseEvent e){
+		if (state > 5){
+			state = 0;
+	    	if (((qm.getCurrentQuestionIndex() % 3) == 1) && (qm.getCurrentQuestionIndex() != 0))
+	    	{
+	    		setCurrentQuestion(qm.getNextBonus());
+	    	}
+	    	else{
+	    		setCurrentQuestion(qm.getNextQuestion());
+	    	}
+    		start();
+		}else{
+			CardLayout cl = (CardLayout)(this.getLayout());
+			cl.show(this, state+"");
+			System.out.println(state);
+			state++;
+		}
+	}
 	    
-	    public void actionPerformed(ActionEvent e){
-	    	mouseClicked(null);
-	    }
+	public void actionPerformed(ActionEvent e){
+		mouseClicked(null);
+	}
 	        
-	    	    
-	    
-	    class AnswerPanel extends JPanel 
-	    {
-	    	JTextField lblAnswer;
-	    	JPanel bottomB;
-	    	JLabel lblAnswerImage;
+    class AnswerPanel extends JPanel 
+    {
+    	JTextField lblAnswer;
+    	JPanel bottomB;
+    	JLabel lblAnswerImage;
 	    	
 	    	
-	    	public AnswerPanel()
-	    	{
-	    		//JPanel topB = new JPanel();
-	    		//topB.setBackground(new Color(31,73,125));
+    	public AnswerPanel()
+    	{
+    		//JPanel topB = new JPanel();
+    		//topB.setBackground(new Color(31,73,125));
 	    		
-	    		bottomB = new JPanel();
-	    		bottomB.setBackground(new Color(31,73,125));
-	    		bottomB.add(lblAnswerImage = new JLabel());
+    		bottomB = new JPanel();
+    		bottomB.setBackground(new Color(31,73,125));
+    		bottomB.add(lblAnswerImage = new JLabel());
 	    				
-	    		JPanel centerB = new JPanel(new GridLayout(2,1));
-	    		centerB.setBackground(new Color(255,255,255));
+    		JPanel centerB = new JPanel(new GridLayout(2,1));
+    		centerB.setBackground(new Color(255,255,255));
 	    		
-	    		JLabel lbl = new JLabel("Correct answer: ");
-	    		lbl.setHorizontalAlignment(SwingConstants.CENTER);
-	    		lbl.setFont(new Font("Arial", Font.PLAIN, 50));
-	    		centerB.add(lbl);
+    		JLabel lbl = new JLabel("Correct answer: ");
+    		lbl.setHorizontalAlignment(SwingConstants.CENTER);
+    		lbl.setFont(new Font("Arial", Font.PLAIN, 50));
+    		centerB.add(lbl);
 	    			    		
-	    		lblAnswer = new JTextField();
-	    		lblAnswer.setFont(new Font("Arial", Font.BOLD, 50));
-	    		//lblAnswer.setLineWrap(true);
-	    		//lblAnswer.setWrapStyleWord(true);
-	    		lblAnswer.setEditable(false);
-	    		lblAnswer.setHorizontalAlignment(SwingConstants.CENTER);
-	    		lblAnswer.setForeground(new Color(31,73,125));
-	    		centerB.add(new JScrollPane(lblAnswer));
+    		lblAnswer = new JTextField();
+    		lblAnswer.setFont(new Font("Arial", Font.BOLD, 50));
+    		//lblAnswer.setLineWrap(true);
+    		//lblAnswer.setWrapStyleWord(true);
+    		lblAnswer.setEditable(false);
+    		lblAnswer.setHorizontalAlignment(SwingConstants.CENTER);
+    		lblAnswer.setForeground(new Color(31,73,125));
+    		centerB.add(new JScrollPane(lblAnswer));
 	    		
-	    		setLayout(new GridLayout(2,1));
-	    		//add(topB);
-	    		add(centerB);
-	    		add(bottomB);
-	    	}
+    		setLayout(new GridLayout(2,1));
+    		//add(topB);
+    		add(centerB);
+    		add(bottomB);
+    	}
 	    	
-	    	public void setQuestion(Question q)
-	    	{
-	    		lblAnswer.setText(q.getAnswer());
-	    		lblAnswerImage.setIcon(q.getAnswerImage());
-	    	}
+    	public void setQuestion(Question q)
+    	{
+    		lblAnswer.setText(q.getAnswer());
+    		lblAnswerImage.setIcon(q.getAnswerImage());
+    	}
 	    	
-	    }
+    }
 	    
 	    
-	    
-	    
-	    class TimesUpPanel extends JPanel
-	    {
-	    	JLabel top;
-	    	JLabel bottom;
+    class TimesUpPanel extends JPanel
+    {
+    	JLabel top;
+    	JLabel bottom;
 	    		    	
-	    	public TimesUpPanel()
-	    	{
-	    		JPanel topA = new JPanel();
-	    		topA.setBackground(new Color(31,73,125));
-	    		
-	    		JPanel bottomA = new JPanel();
-	    		bottomA.setBackground(new Color(31,73,125));
+    	public TimesUpPanel()
+    	{
+    		JPanel topA = new JPanel();
+    		topA.setBackground(new Color(31,73,125));
+    		
+    		JPanel bottomA = new JPanel();
+    		bottomA.setBackground(new Color(31,73,125));
 	    				
-	    		JPanel centerA = new JPanel(new GridLayout(2,1));
-	    		centerA.setBackground(new Color(255,255,255));
-	    				
-	    		top = new JLabel("TIME'S UP!");
-	    		top.setHorizontalAlignment(SwingConstants.CENTER);
-	    		top.setFont(new Font("Times New Roman", Font.BOLD, 100));
-	    		centerA.add(top);
-	    		
-	    		bottom = new JLabel();
-	    		bottom.setHorizontalAlignment(SwingConstants.CENTER);
-	    		bottom.setFont(new Font("Times New Roman", Font.BOLD, 60));
-	    		centerA.add(bottom);
+    		JPanel centerA = new JPanel(new GridLayout(2,1));
+    		centerA.setBackground(new Color(255,255,255));
+    				
+    		top = new JLabel("TIME'S UP!");
+    		top.setHorizontalAlignment(SwingConstants.CENTER);
+    		top.setFont(new Font("Times New Roman", Font.BOLD, 100));
+    		centerA.add(top);
+    		
+    		bottom = new JLabel();
+    		bottom.setHorizontalAlignment(SwingConstants.CENTER);
+    		bottom.setFont(new Font("Times New Roman", Font.BOLD, 60));
+    		centerA.add(bottom);
 	    			
-	    		setLayout(new GridLayout(3,1));
-	    		add(topA);
-	    		add(centerA);
-	    		add(bottomA);
+    		setLayout(new GridLayout(3,1));
+    		add(topA);
+    		add(centerA);
+    		add(bottomA);
 	    		
-	    	}
+    	}
 	    	
-	    	public void setMessage(String msg)
-	    	{
-	    		bottom.setText(msg);
-	    	}
+    	public void setMessage(String msg)
+    	{
+    		bottom.setText(msg);
+    	}
+    	
 	    	
-	    	
-	    }
+    }
 	    
 	    
-	    class QuestionPanel extends JPanel implements ActionListener
+    class QuestionPanel extends JPanel implements ActionListener
+    {
+	    QuizTimer qTimer;
+	    	
+	    JTextArea displayQuestion;
+	    JLabel displayPoints;
+	    JLabel displayType;
+	    JPanel rightCenter;
+	    JLabel lblQuestionImage;
+	    ChoicePanel choices;
+	    JPanel rightBottom;
+	    JLabel controlNumber;
+	    	
+	    public QuestionPanel()
 	    {
-	    	QuizTimer qTimer;
+	    	GridBagLayout layout = new GridBagLayout();
+	    	GridBagConstraints c = new GridBagConstraints();
+	    	c.fill = GridBagConstraints.BOTH;
+	    	setLayout(layout);
+	    		
+	    	JPanel leftTop = new JPanel(new GridLayout(3,1));
+	    	leftTop.setBackground(new Color(31,73,125));
+	    	c.gridx =0;
+	    	c.gridy =0;
+	    	layout.setConstraints(leftTop,c);
+	    	qTimer = new QuizTimer();
+	    	qTimer.setTimesUpListener(this);
+	    	controlNumber = new JLabel("1:1");
+	    	displayPoints = new JLabel();
+	    	displayType = new JLabel();
 	    	
-	    	JTextArea displayQuestion;
-	    	JLabel displayPoints;
-	    	JLabel displayType;
-	    	JPanel rightCenter;
-	    	JLabel lblQuestionImage;
-	    	ChoicePanel choices;
-	    	JPanel rightBottom;
-	    	JLabel controlNumber;
+	    		
+	    	controlNumber.setForeground(Color.GREEN);
+	    	displayPoints.setForeground(Color.YELLOW);
+	    	displayType.setForeground(Color.YELLOW);
+	    	controlNumber.setFont(new Font("Times New Roman", Font.BOLD, 30));
+	    	displayType.setFont(new Font("Times New Roman", Font.BOLD, 50));
+	    	displayPoints.setFont(new Font("Times New Roman", Font.BOLD, 40));
+	    	controlNumber.setHorizontalAlignment(SwingConstants.CENTER);
+	    	displayPoints.setHorizontalAlignment(SwingConstants.CENTER);
+	    	displayType.setHorizontalAlignment(SwingConstants.CENTER);
+	    	displayType.setVerticalAlignment(SwingConstants.BOTTOM);
+	    	displayPoints.setVerticalAlignment(SwingConstants.TOP);
+	    		
+	    	leftTop.add(controlNumber);
+	    	leftTop.add(displayType);
+	    	leftTop.add(displayPoints);
 	    	
-	    	public QuestionPanel()
-	    	{
-	    		GridBagLayout layout = new GridBagLayout();
-	    		GridBagConstraints c = new GridBagConstraints();
-	    		c.fill = GridBagConstraints.BOTH;
-	    		setLayout(layout);
 	    		
-	    		JPanel leftTop = new JPanel(new GridLayout(3,1));
-	    		leftTop.setBackground(new Color(31,73,125));
-	    		c.gridx =0;
-	    		c.gridy =0;
-	    		layout.setConstraints(leftTop,c);
-	    		qTimer = new QuizTimer();
-	    		qTimer.setTimesUpListener(this);
-	    		controlNumber = new JLabel("1:1");
-	    		displayPoints = new JLabel();
-	    		displayType = new JLabel();
+	    	JPanel rightTop = new JPanel(new BorderLayout());
+	    	rightTop.setBackground(new Color(255,255,255));		
+	    	c.gridx =1;
+	    	c.gridy =0;
+	    	layout.setConstraints(rightTop,c);
+	    	displayQuestion = new JTextArea();
+	    	displayQuestion.setFont(new Font("Arial", Font.PLAIN, 55));
+	    	displayQuestion.setLineWrap(true);
+	    	displayQuestion.setWrapStyleWord(true);
+	    	displayQuestion.setEditable(false);
+	    	rightTop.add(new JScrollPane(displayQuestion));
 	    		
-	    		
-	    		controlNumber.setForeground(Color.GREEN);
-	    		displayPoints.setForeground(Color.YELLOW);
-	    		displayType.setForeground(Color.YELLOW);
-	    		controlNumber.setFont(new Font("Times New Roman", Font.BOLD, 30));
-	    		displayType.setFont(new Font("Times New Roman", Font.BOLD, 50));
-	    		displayPoints.setFont(new Font("Times New Roman", Font.BOLD, 40));
-	    		controlNumber.setHorizontalAlignment(SwingConstants.CENTER);
-	    		displayPoints.setHorizontalAlignment(SwingConstants.CENTER);
-	    		displayType.setHorizontalAlignment(SwingConstants.CENTER);
-	    		displayType.setVerticalAlignment(SwingConstants.BOTTOM);
-	    		displayPoints.setVerticalAlignment(SwingConstants.TOP);
-	    		
-	    		leftTop.add(controlNumber);
-	    		leftTop.add(displayType);
-	    		leftTop.add(displayPoints);
-	    		
-	    		
-	    		JPanel rightTop = new JPanel(new BorderLayout());
-	    		rightTop.setBackground(new Color(255,255,255));		
-	    		c.gridx =1;
-	    		c.gridy =0;
-	    		layout.setConstraints(rightTop,c);
-	    		displayQuestion = new JTextArea();
-	    		displayQuestion.setFont(new Font("Arial", Font.PLAIN, 55));
-	    		displayQuestion.setLineWrap(true);
-	    		displayQuestion.setWrapStyleWord(true);
-	    		displayQuestion.setEditable(false);
-	    		rightTop.add(new JScrollPane(displayQuestion));
-	    		
-	    		JPanel leftCenter = new JPanel();
-	    		leftCenter.setBackground(new Color(31,73,125));
-	    		c.gridx =0;
-	    		c.gridy =1;
-	    		layout.setConstraints(leftCenter,c);
+	    	JPanel leftCenter = new JPanel();
+	    	leftCenter.setBackground(new Color(31,73,125));
+	    	c.gridx =0;
+	    	c.gridy =1;
+	    	layout.setConstraints(leftCenter,c);
 	    				
-	    		rightCenter = new JPanel(new BorderLayout());
-	    		rightCenter.setBackground(new Color(255,255,255));		
-	    		c.gridx =1;
-	    		c.gridy =1;
-	    		layout.setConstraints(rightCenter,c);
+	    	rightCenter = new JPanel(new BorderLayout());
+	    	rightCenter.setBackground(new Color(255,255,255));		
+	    	c.gridx =1;
+	    	c.gridy =1;
+	    	layout.setConstraints(rightCenter,c);
 	    		
 	    		
 	    				
-	    		JPanel leftBottom = new JPanel();
-	    		leftBottom.setBackground(new Color(31,73,125));
-	    		c.gridx =0;
-	    		c.gridy =2;
-	    		layout.setConstraints(leftBottom,c);
-	    		leftBottom.add(qTimer);
+	    	JPanel leftBottom = new JPanel();
+	    	leftBottom.setBackground(new Color(31,73,125));
+	    	c.gridx =0;
+	    	c.gridy =2;
+	    	layout.setConstraints(leftBottom,c);
+	    	leftBottom.add(qTimer);
 	    		
 	    		
-	    		rightBottom = new JPanel(new CardLayout());
-	    		rightBottom.setBackground(new Color(255,255,255));		
-	    		c.gridx =1;
-	    		c.gridy =2;
-	    		layout.setConstraints(rightBottom,c);
-	    		choices = new ChoicePanel();
-	    		lblQuestionImage = new JLabel();
-	    		rightBottom.add(choices,"choices");
-	    		rightBottom.add(lblQuestionImage,"image");
+	    	rightBottom = new JPanel(new CardLayout());
+	    	rightBottom.setBackground(new Color(255,255,255));		
+	    	c.gridx =1;
+	    	c.gridy =2;
+	    	layout.setConstraints(rightBottom,c);
+	    	choices = new ChoicePanel();
+	    	lblQuestionImage = new JLabel();
+	    	rightBottom.add(choices,"choices");
+	    	rightBottom.add(lblQuestionImage,"image");
 	    		
-	    		/*
-	    		if (q.getType().equals(Question.MULTIPLE_CHOICE))
-	    		{
-	    			MultipleChoiceQuestion q2=(MultipleChoiceQuestion)q;
-	    			
-	    			JLabel choiceA = new JLabel(q2.getChoice(0));
-	    			choiceA.setFont(new Font("Arial", Font.PLAIN, 70));
-	    			JLabel choiceB = new JLabel(q2.getChoice(1));
-	    			choiceB.setFont(new Font("Arial", Font.PLAIN, 70));
-	    			JLabel choiceC = new JLabel(q2.getChoice(2));
-	    			choiceC.setFont(new Font("Arial", Font.PLAIN, 70));
-	    			JLabel choiceD = new JLabel(q2.getChoice(3));
-	    			choiceD.setFont(new Font("Arial", Font.PLAIN, 70));
-	    						
-	    			rightBottom.add(choiceA);
-	    			rightBottom.add(choiceB);
-	    			rightBottom.add(choiceC);
-	    			rightBottom.add(choiceD);
-	    		}
-	    		
-	    		*/
-	    		
-	    		add(leftTop);
-	    		add(rightTop);
-	    		add(leftCenter);
-	    		add(rightCenter);
-	    		add(leftBottom);
-	    		add(rightBottom);
-	    		
-	    		layout.columnWeights = new double[]{0.0f,4.0f};
-	    		layout.rowWeights = new double[]{2.0f,2.0f};
-	    		
-	    		
-	    		setColumnMinWidth(layout, 0, 300);
-	    		setRowMinHeight(layout, 0, 550);
-	    		setRowMinHeight(layout, 1, 10);
-	    		setRowMinHeight(layout, 2, 80);
-	    		
-	    	}
 	    	
-	    	public void setQuestion(Question q)
-	    	{
-	    		displayQuestion.setText(q.getQuestion());
-	    		displayPoints.setText("(" +q.getLevel()+" - " + q.getPoints() + " points )");
-	    		displayType.setText(q.getType());
-	    		qTimer.setMax(q.getTimeAllowed());
-	    		controlNumber.setText(QuestionView.this.qCount+":"+q.getId());
 	    		
-	    		CardLayout cl = (CardLayout)rightBottom.getLayout();
+	    	add(leftTop);
+	    	add(rightTop);
+	    	add(leftCenter);
+	    	add(rightCenter);
+	    	add(leftBottom);
+	    	add(rightBottom);
 	    		
-	    		if (q.getType() == Question.MULTIPLE_CHOICE)
-	    		{	
-	    			MultipleChoiceQuestion mq = (MultipleChoiceQuestion)q; 
-	    			choices.setQuestion(mq);
-	    			cl.show(rightBottom,"choices");
-	    		}else{
-	    			lblQuestionImage.setIcon(q.getQuestionImage());
-	    			cl.show(rightBottom,"image");
-	    		}
-	    	}
-	    	
-	    	public void actionPerformed(ActionEvent e){
-	    		QuestionView.this.mouseClicked(null);
-		    }
+	    	layout.columnWeights = new double[]{0.0f,4.0f};
+	    	layout.rowWeights = new double[]{2.0f,2.0f};
+	    		
+	    		
+	    	setColumnMinWidth(layout, 0, 300);
+	    	setRowMinHeight(layout, 0, 550);
+	    	setRowMinHeight(layout, 1, 10);
+	    	setRowMinHeight(layout, 2, 80);
+	    		
 	    }
-	    
-	    
-	    class TypePanel extends JPanel implements ActionListener
+	    	
+	    public void setQuestion(Question q)
 	    {
-	    	QuizTimer betTimer = new QuizTimer(10);
-	    	JLabel lblType;
-	    	JLabel lblLevel;
+	    	displayQuestion.setText(q.getQuestion());
+	    	displayPoints.setText("(" +q.getLevel()+" - " + q.getPoints() + " points )");
+	    	displayType.setText(q.getType());
+	    	qTimer.setMax(q.getTimeAllowed());
+	    	controlNumber.setText(qm.getCurrentQuestionIndex()+":"+q.getId());
 	    	
-	    	public TypePanel(){
-	    		
-	    		JPanel top = new JPanel();
-	    		top.setBackground(new Color(31,73,125));
-	    		
-	    		JPanel bottom = new JPanel();
-	    		bottom.setBackground(new Color(31,73,125));
-	    		
-	    		betTimer.setTimesUpListener(this);
-	    		bottom.add(betTimer);
-	    		
-	    		JPanel center = new JPanel(new GridLayout(2,1));
-	    		center.setBackground(new Color(255,255,255));
-	    		
-	    		lblType = new JLabel();
-	    		lblType.setHorizontalAlignment(SwingConstants.CENTER);
-	    		lblType.setFont(new Font("Times New Roman", Font.BOLD, 80));
-	    		
-	    		lblLevel = new JLabel();
-	    		lblLevel.setHorizontalAlignment(SwingConstants.CENTER);
-	    		lblLevel.setFont(new Font("Times New Roman", Font.BOLD, 70));
-	    		lblLevel.setForeground(new Color(100,100,100));
-	    		center.add(lblType);
-	    		center.add(lblLevel);
-	    		
-	    		setLayout(new GridLayout(3,1));
-	    		add(top);
-	    		add(center);
-	    		add(bottom);
-	    		
+	    	CardLayout cl = (CardLayout)rightBottom.getLayout();
+	    	
+	    	if (q.getType() == Question.MULTIPLE_CHOICE)
+	    	{	
+	    		MultipleChoiceQuestion mq = (MultipleChoiceQuestion)q; 
+	    		choices.setQuestion(mq);
+	    		cl.show(rightBottom,"choices");
+	    	}else{
+	    		lblQuestionImage.setIcon(q.getQuestionImage());
+	    		cl.show(rightBottom,"image");
 	    	}
-	    	
-	    	public void setQuestion(Question q)
-	    	{
-	    		lblType.setText(q.getType());
-	    		lblLevel.setText("(" +q.getLevel()+" - " + q.getPoints() + " points )");
-	    		betTimer.setMax(10);
-	    	}
-	    	
-	    	public void actionPerformed(ActionEvent e){
-		    	QuestionView.this.mouseClicked(null);
-		    }
 	    }
+	    	
+	    public void actionPerformed(ActionEvent e){
+	    	QuestionView.this.mouseClicked(null);
+		}
+    }
+	    
+	    
+    class TypePanel extends JPanel implements ActionListener
+    {
+	   	QuizTimer betTimer = new QuizTimer(10);
+	   	JLabel lblType;
+	   	JLabel lblLevel;
+	    	
+	   	public TypePanel(){
+    		JPanel top = new JPanel();
+    		top.setBackground(new Color(31,73,125));
+	    		
+    		JPanel bottom = new JPanel();
+    		bottom.setBackground(new Color(31,73,125));
+	    		
+    		betTimer.setTimesUpListener(this);
+    		bottom.add(betTimer);
+	    		
+    		JPanel center = new JPanel(new GridLayout(2,1));
+    		center.setBackground(new Color(255,255,255));
+	    		
+    		lblType = new JLabel();
+    		lblType.setHorizontalAlignment(SwingConstants.CENTER);
+    		lblType.setFont(new Font("Times New Roman", Font.BOLD, 80));
+	    		
+    		lblLevel = new JLabel();
+    		lblLevel.setHorizontalAlignment(SwingConstants.CENTER);
+    		lblLevel.setFont(new Font("Times New Roman", Font.BOLD, 70));
+    		lblLevel.setForeground(new Color(100,100,100));
+    		center.add(lblType);
+    		center.add(lblLevel);
+	    		
+    		setLayout(new GridLayout(3,1));
+    		add(top);
+    		add(center);
+    		add(bottom);
+	    		
+    	}
+	    	
+    	public void setQuestion(Question q)
+    	{
+    		lblType.setText(q.getType());
+    		lblLevel.setText("(" +q.getLevel()+" - " + q.getPoints() + " points )");
+    		betTimer.setMax(10);
+    	}
+	    	
+    	public void actionPerformed(ActionEvent e){
+	    	QuestionView.this.mouseClicked(null);
+	    }
+    }
 
 	    
-	    class ChoicePanel extends JPanel{
-	    	JTextArea choiceA = new JTextArea();
-	    	JTextArea choiceB = new JTextArea();
-	    	JTextArea choiceC = new JTextArea();
-	    	JTextArea choiceD = new JTextArea();
-	    	JTextArea choiceE = new JTextArea();
+    class ChoicePanel extends JPanel{
+    	JTextArea choiceA = new JTextArea();
+    	JTextArea choiceB = new JTextArea();
+    	JTextArea choiceC = new JTextArea();
+	   	JTextArea choiceD = new JTextArea();
+	   	JTextArea choiceE = new JTextArea();
 	    		    	
-	    	public ChoicePanel(){
-	    		setLayout(new GridLayout(5,1));
-	    		choiceA.setFont(new Font("Arial", Font.BOLD, 30));
-	    		choiceB.setFont(new Font("Arial", Font.BOLD, 30));
-	    		choiceC.setFont(new Font("Arial", Font.BOLD, 30));
-	    		choiceD.setFont(new Font("Arial", Font.BOLD, 30));
-	    		choiceE.setFont(new Font("Arial", Font.BOLD, 30));
+	   	public ChoicePanel(){
+	   		setLayout(new GridLayout(5,1));
+	    	choiceA.setFont(new Font("Arial", Font.BOLD, 30));
+	    	choiceB.setFont(new Font("Arial", Font.BOLD, 30));
+	    	choiceC.setFont(new Font("Arial", Font.BOLD, 30));
+	    	choiceD.setFont(new Font("Arial", Font.BOLD, 30));
+	    	choiceE.setFont(new Font("Arial", Font.BOLD, 30));
 	    		
-	    		add(new JScrollPane(choiceA));
-	    		add(new JScrollPane(choiceB));
-	    		add(new JScrollPane(choiceC));
-	    		add(new JScrollPane(choiceD));
-	    		add(new JScrollPane(choiceE));
-	    	}
+	    	add(new JScrollPane(choiceA));
+	    	add(new JScrollPane(choiceB));
+	    	add(new JScrollPane(choiceC));
+	    	add(new JScrollPane(choiceD));
+	    	add(new JScrollPane(choiceE));
+    	}
 	    	
-	    	public void setQuestion(MultipleChoiceQuestion q)
-	    	{
-	    		choiceA.setText(q.getChoice(0));
-	    		choiceB.setText(q.getChoice(1));
-	    		choiceC.setText(q.getChoice(2));
-	    		choiceD.setText(q.getChoice(3));
-	    		choiceE.setText(q.getChoice(4));
-	    	}
-	    }
-	    
+    	public void setQuestion(MultipleChoiceQuestion q)
+    	{
+    		choiceA.setText(q.getChoice(0));
+    		choiceB.setText(q.getChoice(1));
+    		choiceC.setText(q.getChoice(2));
+    		choiceD.setText(q.getChoice(3));
+    		choiceE.setText(q.getChoice(4));
+    	}
+    }
 }
