@@ -1,3 +1,30 @@
 1;1;This refers to the usefulness of a good or service.;Utility;Easy;econsoclogo.jpg;econsoclogo.jpg
 2;2;Who is the father of economics?;a)Adam Smith;Average;econsoclogo.jpg;econsoclogo.jpg;a)Adam Smith;b)Adam West;c)Adam Sandler;d)Adam Mantium;e)None of the Above
 3;0;Mahal ni Johanna si Jose P. Rizal.; True;Difficult;econsoclogo.jpg;econsoclogo.jpg
+4;1;This refers to the usefulness of a good or service.;Utility;Easy;econsoclogo.jpg;econsoclogo.jpg
+5;2;Who is the father of economics?;a)Adam Smith;Average;econsoclogo.jpg;econsoclogo.jpg;a)Adam Smith;b)Adam West;c)Adam Sandler;d)Adam Mantium;e)None of the Above
+6;0;Mahal ni Johanna si Jose P. Rizal.; True;Difficult;econsoclogo.jpg;econsoclogo.jpg
+7;1;This refers to the usefulness of a good or service.;Utility;Easy;econsoclogo.jpg;econsoclogo.jpg
+8;2;Who is the father of economics?;a)Adam Smith;Average;econsoclogo.jpg;econsoclogo.jpg;a)Adam Smith;b)Adam West;c)Adam Sandler;d)Adam Mantium;e)None of the Above
+9;0;Mahal ni Johanna si Jose P. Rizal.; True;Difficult;econsoclogo.jpg;econsoclogo.jpg
+10;1;This refers to the usefulness of a good or service.;Utility;Easy;econsoclogo.jpg;econsoclogo.jpg
+11;2;Who is the father of economics?;a)Adam Smith;Average;econsoclogo.jpg;econsoclogo.jpg;a)Adam Smith;b)Adam West;c)Adam Sandler;d)Adam Mantium;e)None of the Above
+12;0;Mahal ni Johanna si Jose P. Rizal.; True;Difficult;econsoclogo.jpg;econsoclogo.jpg
+13;1;This refers to the usefulness of a good or service.;Utility;Easy;econsoclogo.jpg;econsoclogo.jpg
+14;2;Who is the father of economics?;a)Adam Smith;Average;econsoclogo.jpg;econsoclogo.jpg;a)Adam Smith;b)Adam West;c)Adam Sandler;d)Adam Mantium;e)None of the Above
+15;0;Mahal ni Johanna si Jose P. Rizal.; True;Difficult;econsoclogo.jpg;econsoclogo.jpg
+16;1;This refers to the usefulness of a good or service.;Utility;Easy;econsoclogo.jpg;econsoclogo.jpg
+17;2;Who is the father of economics?;a)Adam Smith;Average;econsoclogo.jpg;econsoclogo.jpg;a)Adam Smith;b)Adam West;c)Adam Sandler;d)Adam Mantium;e)None of the Above
+18;0;Mahal ni Johanna si Jose P. Rizal.; True;Difficult;econsoclogo.jpg;econsoclogo.jpg
+19;1;This refers to the usefulness of a good or service.;Utility;Easy;econsoclogo.jpg;econsoclogo.jpg
+20;2;Who is the father of economics?;a)Adam Smith;Average;econsoclogo.jpg;econsoclogo.jpg;a)Adam Smith;b)Adam West;c)Adam Sandler;d)Adam Mantium;e)None of the Above
+21;0;Mahal ni Johanna si Jose P. Rizal.; True;Difficult;econsoclogo.jpg;econsoclogo.jpg
+22;1;This refers to the usefulness of a good or service.;Utility;Easy;econsoclogo.jpg;econsoclogo.jpg
+23;2;Who is the father of economics?;a)Adam Smith;Average;econsoclogo.jpg;econsoclogo.jpg;a)Adam Smith;b)Adam West;c)Adam Sandler;d)Adam Mantium;e)None of the Above
+24;0;Mahal ni Johanna si Jose P. Rizal.; True;Difficult;econsoclogo.jpg;econsoclogo.jpg
+25;1;This refers to the usefulness of a good or service.;Utility;Easy;econsoclogo.jpg;econsoclogo.jpg
+26;2;Who is the father of economics?;a)Adam Smith;Average;econsoclogo.jpg;econsoclogo.jpg;a)Adam Smith;b)Adam West;c)Adam Sandler;d)Adam Mantium;e)None of the Above
+27;0;Mahal ni Johanna si Jose P. Rizal.; True;Difficult;econsoclogo.jpg;econsoclogo.jpg
+28;1;This refers to the usefulness of a good or service.;Utility;Easy;econsoclogo.jpg;econsoclogo.jpg
+29;2;Who is the father of economics?;a)Adam Smith;Average;econsoclogo.jpg;econsoclogo.jpg;a)Adam Smith;b)Adam West;c)Adam Sandler;d)Adam Mantium;e)None of the Above
+30;0;Mahal ni Johanna si Jose P. Rizal.; True;Difficult;econsoclogo.jpg;econsoclogo.jpg

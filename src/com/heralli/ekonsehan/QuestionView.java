@@ -123,10 +123,10 @@ public class QuestionView extends JPanel implements MouseListener, ActionListene
 		
 		if (state > 5){
 			state = 0;
-			//if (qm.getCurrentCount() == 3)
-			//	start(qm.getNextBonus());
-			//else	
-			start(qm.getNextQuestion());
+			if ((qm.getCurrentCount() == 10) || (qm.getCurrentCount() == 21) || (qm.getCurrentCount() == 32)) 
+				start(qm.getNextBonus());
+			else	
+				start(qm.getNextQuestion());
 		}else{
 			CardLayout cl = (CardLayout)(this.getLayout());
 			cl.show(this, state+"");
