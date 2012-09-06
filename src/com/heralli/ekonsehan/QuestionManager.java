@@ -38,7 +38,7 @@ public class QuestionManager {
 	public QuestionManager(){
 		bonus.add(new BonusQuestion("Bonus 1","When was the Department of Economics established?(Give the full date)","July 31, 1975","Easy","econsoclogo.jpg","econsoclogo.jpg"));
 		bonus.add(new BonusQuestion("Bonus 2","Give the full name of the senior adviser of the UPLB Economics Society.","Bello, Amelia L.","Easy","econsoclogo.jpg","econsoclogo.jpg"));
-		bonus.add(new BonusQuestion("Bonus 3","Give the name of at least three alumni of the UPLB Economics Society who are currently teaching in the Department of Economics.","Arapoc, Jefferey;Arias, Kim;Baldovino, Harvey;Camacho,;Cuevas, Agham;Manalo,;Ramirez, Paul Joseph;Sajise, Asa Jose;Valientes, Rodger","Easy","econsoclogo.jpg","econsoclogo.jpg"));
+		bonus.add(new BonusQuestion("Bonus 3","Give the name of at least three alumni of the UPLB Economics Society who are currently teaching in the Department of Economics.","Arapoc, Jefferey;Arias, Kim;Baldovino, Harvey;Camacho, Jose;Cuevas, Agham;;Ramirez, Paul Joseph;Sajise, Asa Jose;Valientes, Rodger","Easy","econsoclogo.jpg","econsoclogo.jpg"));
 		Collections.shuffle(bonus);
 	}
 	
